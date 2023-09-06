@@ -1,0 +1,430 @@
+{
+	"goerli": "0xC61bb03BAd82b73F439D302Ef1430D2852B16EF8",
+	"abi": [
+		{
+			"type": "constructor",
+			"payable": false,
+			"inputs": [
+				{
+					"type": "address",
+					"name": "_operatorStore"
+				},
+				{
+					"type": "address",
+					"name": "_projects"
+				},
+				{
+					"type": "address",
+					"name": "_fundingCycleStore"
+				},
+				{
+					"type": "address",
+					"name": "_owner"
+				}
+			]
+		},
+		{
+			"type": "error",
+			"name": "DUPLICATE_TERMINALS",
+			"inputs": []
+		},
+		{
+			"type": "error",
+			"name": "INVALID_PROJECT_ID_IN_DIRECTORY",
+			"inputs": []
+		},
+		{
+			"type": "error",
+			"name": "SET_CONTROLLER_NOT_ALLOWED",
+			"inputs": []
+		},
+		{
+			"type": "error",
+			"name": "SET_TERMINALS_NOT_ALLOWED",
+			"inputs": []
+		},
+		{
+			"type": "error",
+			"name": "TOKEN_NOT_ACCEPTED",
+			"inputs": []
+		},
+		{
+			"type": "error",
+			"name": "UNAUTHORIZED",
+			"inputs": []
+		},
+		{
+			"type": "event",
+			"anonymous": false,
+			"name": "AddTerminal",
+			"inputs": [
+				{
+					"type": "uint256",
+					"name": "projectId",
+					"indexed": true
+				},
+				{
+					"type": "address",
+					"name": "terminal",
+					"indexed": true
+				},
+				{
+					"type": "address",
+					"name": "caller",
+					"indexed": false
+				}
+			]
+		},
+		{
+			"type": "event",
+			"anonymous": false,
+			"name": "OwnershipTransferred",
+			"inputs": [
+				{
+					"type": "address",
+					"name": "previousOwner",
+					"indexed": true
+				},
+				{
+					"type": "address",
+					"name": "newOwner",
+					"indexed": true
+				}
+			]
+		},
+		{
+			"type": "event",
+			"anonymous": false,
+			"name": "SetController",
+			"inputs": [
+				{
+					"type": "uint256",
+					"name": "projectId",
+					"indexed": true
+				},
+				{
+					"type": "address",
+					"name": "controller",
+					"indexed": true
+				},
+				{
+					"type": "address",
+					"name": "caller",
+					"indexed": false
+				}
+			]
+		},
+		{
+			"type": "event",
+			"anonymous": false,
+			"name": "SetIsAllowedToSetFirstController",
+			"inputs": [
+				{
+					"type": "address",
+					"name": "addr",
+					"indexed": true
+				},
+				{
+					"type": "bool",
+					"name": "flag",
+					"indexed": true
+				},
+				{
+					"type": "address",
+					"name": "caller",
+					"indexed": false
+				}
+			]
+		},
+		{
+			"type": "event",
+			"anonymous": false,
+			"name": "SetPrimaryTerminal",
+			"inputs": [
+				{
+					"type": "uint256",
+					"name": "projectId",
+					"indexed": true
+				},
+				{
+					"type": "address",
+					"name": "token",
+					"indexed": true
+				},
+				{
+					"type": "address",
+					"name": "terminal",
+					"indexed": true
+				},
+				{
+					"type": "address",
+					"name": "caller",
+					"indexed": false
+				}
+			]
+		},
+		{
+			"type": "event",
+			"anonymous": false,
+			"name": "SetTerminals",
+			"inputs": [
+				{
+					"type": "uint256",
+					"name": "projectId",
+					"indexed": true
+				},
+				{
+					"type": "address[]",
+					"name": "terminals",
+					"indexed": false
+				},
+				{
+					"type": "address",
+					"name": "caller",
+					"indexed": false
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "controllerOf",
+			"constant": true,
+			"stateMutability": "view",
+			"payable": false,
+			"inputs": [
+				{
+					"type": "uint256"
+				}
+			],
+			"outputs": [
+				{
+					"type": "address"
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "fundingCycleStore",
+			"constant": true,
+			"stateMutability": "view",
+			"payable": false,
+			"inputs": [],
+			"outputs": [
+				{
+					"type": "address"
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "isAllowedToSetFirstController",
+			"constant": true,
+			"stateMutability": "view",
+			"payable": false,
+			"inputs": [
+				{
+					"type": "address"
+				}
+			],
+			"outputs": [
+				{
+					"type": "bool"
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "isTerminalOf",
+			"constant": true,
+			"stateMutability": "view",
+			"payable": false,
+			"inputs": [
+				{
+					"type": "uint256",
+					"name": "_projectId"
+				},
+				{
+					"type": "address",
+					"name": "_terminal"
+				}
+			],
+			"outputs": [
+				{
+					"type": "bool"
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "operatorStore",
+			"constant": true,
+			"stateMutability": "view",
+			"payable": false,
+			"inputs": [],
+			"outputs": [
+				{
+					"type": "address"
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "owner",
+			"constant": true,
+			"stateMutability": "view",
+			"payable": false,
+			"inputs": [],
+			"outputs": [
+				{
+					"type": "address"
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "primaryTerminalOf",
+			"constant": true,
+			"stateMutability": "view",
+			"payable": false,
+			"inputs": [
+				{
+					"type": "uint256",
+					"name": "_projectId"
+				},
+				{
+					"type": "address",
+					"name": "_token"
+				}
+			],
+			"outputs": [
+				{
+					"type": "address"
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "projects",
+			"constant": true,
+			"stateMutability": "view",
+			"payable": false,
+			"inputs": [],
+			"outputs": [
+				{
+					"type": "address"
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "renounceOwnership",
+			"constant": false,
+			"payable": false,
+			"inputs": [],
+			"outputs": []
+		},
+		{
+			"type": "function",
+			"name": "setControllerOf",
+			"constant": false,
+			"payable": false,
+			"inputs": [
+				{
+					"type": "uint256",
+					"name": "_projectId"
+				},
+				{
+					"type": "address",
+					"name": "_controller"
+				}
+			],
+			"outputs": []
+		},
+		{
+			"type": "function",
+			"name": "setIsAllowedToSetFirstController",
+			"constant": false,
+			"payable": false,
+			"inputs": [
+				{
+					"type": "address",
+					"name": "_address"
+				},
+				{
+					"type": "bool",
+					"name": "_flag"
+				}
+			],
+			"outputs": []
+		},
+		{
+			"type": "function",
+			"name": "setPrimaryTerminalOf",
+			"constant": false,
+			"payable": false,
+			"inputs": [
+				{
+					"type": "uint256",
+					"name": "_projectId"
+				},
+				{
+					"type": "address",
+					"name": "_token"
+				},
+				{
+					"type": "address",
+					"name": "_terminal"
+				}
+			],
+			"outputs": []
+		},
+		{
+			"type": "function",
+			"name": "setTerminalsOf",
+			"constant": false,
+			"payable": false,
+			"inputs": [
+				{
+					"type": "uint256",
+					"name": "_projectId"
+				},
+				{
+					"type": "address[]",
+					"name": "_terminals"
+				}
+			],
+			"outputs": []
+		},
+		{
+			"type": "function",
+			"name": "terminalsOf",
+			"constant": true,
+			"stateMutability": "view",
+			"payable": false,
+			"inputs": [
+				{
+					"type": "uint256",
+					"name": "_projectId"
+				}
+			],
+			"outputs": [
+				{
+					"type": "address[]"
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "transferOwnership",
+			"constant": false,
+			"payable": false,
+			"inputs": [
+				{
+					"type": "address",
+					"name": "newOwner"
+				}
+			],
+			"outputs": []
+		}
+	]
+}

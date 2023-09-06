@@ -1,0 +1,19 @@
+{
+	"compilerOptions": {
+		"module": "commonjs",
+		"noImplicitReturns": true,
+		"noUnusedLocals": true,
+		"esModuleInterop": true,
+		"outDir": "lib",
+		"sourceMap": true,
+		"resolveJsonModule": true,
+		"target": "es2017",
+		"skipLibCheck": true,
+		"experimentalDecorators": true,
+		"useUnknownInCatchVariables": false,
+		"types": ["jest", "node"]
+	},
+	"compileOnSave": true,
+	"include": ["src/*.ts", "src/**/*.ts"],
+	"exclude": ["node_modules", "tests"]
+}

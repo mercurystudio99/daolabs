@@ -1,0 +1,31 @@
+{
+	"goerli": "0x2E8c8630b4c1C3BA32f1c80ACEDc2709A2Af0711",
+	"abi": [
+		{
+			"type": "function",
+			"name": "ETH",
+			"constant": true,
+			"stateMutability": "view",
+			"payable": false,
+			"inputs": [],
+			"outputs": [
+				{
+					"type": "uint256"
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "USD",
+			"constant": true,
+			"stateMutability": "view",
+			"payable": false,
+			"inputs": [],
+			"outputs": [
+				{
+					"type": "uint256"
+				}
+			]
+		}
+	]
+}

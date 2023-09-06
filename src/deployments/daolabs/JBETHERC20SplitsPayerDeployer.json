@@ -1,0 +1,225 @@
+{
+	"goerli": "0xFC9EE22b6a9459cE447B7aB4210268adAdFf727D",
+	"abi": [
+		{
+			"type": "constructor",
+			"payable": false,
+			"inputs": [
+				{
+					"type": "address",
+					"name": "_splitsStore"
+				}
+			]
+		},
+		{
+			"type": "event",
+			"anonymous": false,
+			"name": "DeploySplitsPayer",
+			"inputs": [
+				{
+					"type": "address",
+					"name": "splitsPayer",
+					"indexed": true
+				},
+				{
+					"type": "uint256",
+					"name": "defaultSplitsProjectId",
+					"indexed": false
+				},
+				{
+					"type": "uint256",
+					"name": "defaultSplitsDomain",
+					"indexed": false
+				},
+				{
+					"type": "uint256",
+					"name": "defaultSplitsGroup",
+					"indexed": false
+				},
+				{
+					"type": "address",
+					"name": "splitsStore",
+					"indexed": false
+				},
+				{
+					"type": "uint256",
+					"name": "defaultProjectId",
+					"indexed": false
+				},
+				{
+					"type": "address",
+					"name": "defaultBeneficiary",
+					"indexed": false
+				},
+				{
+					"type": "bool",
+					"name": "defaultPreferClaimedTokens",
+					"indexed": false
+				},
+				{
+					"type": "string",
+					"name": "defaultMemo",
+					"indexed": false
+				},
+				{
+					"type": "bytes",
+					"name": "defaultMetadata",
+					"indexed": false
+				},
+				{
+					"type": "bool",
+					"name": "preferAddToBalance",
+					"indexed": false
+				},
+				{
+					"type": "address",
+					"name": "owner",
+					"indexed": false
+				},
+				{
+					"type": "address",
+					"name": "caller",
+					"indexed": false
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "deploySplitsPayer",
+			"constant": false,
+			"payable": false,
+			"inputs": [
+				{
+					"type": "uint256",
+					"name": "_defaultSplitsProjectId"
+				},
+				{
+					"type": "uint256",
+					"name": "_defaultSplitsDomain"
+				},
+				{
+					"type": "uint256",
+					"name": "_defaultSplitsGroup"
+				},
+				{
+					"type": "uint256",
+					"name": "_defaultProjectId"
+				},
+				{
+					"type": "address",
+					"name": "_defaultBeneficiary"
+				},
+				{
+					"type": "bool",
+					"name": "_defaultPreferClaimedTokens"
+				},
+				{
+					"type": "string",
+					"name": "_defaultMemo"
+				},
+				{
+					"type": "bytes",
+					"name": "_defaultMetadata"
+				},
+				{
+					"type": "bool",
+					"name": "_defaultPreferAddToBalance"
+				},
+				{
+					"type": "address",
+					"name": "_owner"
+				}
+			],
+			"outputs": [
+				{
+					"type": "address",
+					"name": "splitsPayer"
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "deploySplitsPayerWithSplits",
+			"constant": false,
+			"payable": false,
+			"inputs": [
+				{
+					"type": "uint256",
+					"name": "_defaultSplitsProjectId"
+				},
+				{
+					"type": "tuple[]",
+					"name": "_defaultSplits",
+					"components": [
+						{
+							"type": "bool",
+							"name": "preferClaimed"
+						},
+						{
+							"type": "bool",
+							"name": "preferAddToBalance"
+						},
+						{
+							"type": "uint256",
+							"name": "percent"
+						},
+						{
+							"type": "uint256",
+							"name": "projectId"
+						},
+						{
+							"type": "address",
+							"name": "beneficiary"
+						},
+						{
+							"type": "uint256",
+							"name": "lockedUntil"
+						},
+						{
+							"type": "address",
+							"name": "allocator"
+						}
+					]
+				},
+				{
+					"type": "address",
+					"name": "_splitsStore"
+				},
+				{
+					"type": "uint256",
+					"name": "_defaultProjectId"
+				},
+				{
+					"type": "address",
+					"name": "_defaultBeneficiary"
+				},
+				{
+					"type": "bool",
+					"name": "_defaultPreferClaimedTokens"
+				},
+				{
+					"type": "string",
+					"name": "_defaultMemo"
+				},
+				{
+					"type": "bytes",
+					"name": "_defaultMetadata"
+				},
+				{
+					"type": "bool",
+					"name": "_defaultPreferAddToBalance"
+				},
+				{
+					"type": "address",
+					"name": "_owner"
+				}
+			],
+			"outputs": [
+				{
+					"type": "address",
+					"name": "splitsPayer"
+				}
+			]
+		}
+	]
+}

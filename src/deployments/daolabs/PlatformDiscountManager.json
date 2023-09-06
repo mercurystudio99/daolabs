@@ -1,0 +1,260 @@
+{
+    "goerli": "0x450C138a3Be9F3D161a37106d719c37c9688b874",
+    "abi": [
+        {
+            "type": "constructor",
+            "payable": false,
+            "inputs": [
+                {
+                    "type": "address",
+                    "name": "_jbxDirectory"
+                },
+                {
+                    "type": "address",
+                    "name": "_jbxProjects"
+                },
+                {
+                    "type": "address",
+                    "name": "_jbxOperatorStore"
+                }
+            ]
+        },
+        {
+            "type": "error",
+            "name": "INVALID_DISCOUNT",
+            "inputs": []
+        },
+        {
+            "type": "error",
+            "name": "UNAUTHORIZED",
+            "inputs": []
+        },
+        {
+            "type": "event",
+            "anonymous": false,
+            "name": "AddDiscount",
+            "inputs": [
+                {
+                    "type": "address",
+                    "name": "token",
+                    "indexed": false
+                },
+                {
+                    "type": "uint8",
+                    "name": "tokenType",
+                    "indexed": false
+                },
+                {
+                    "type": "uint256",
+                    "name": "tokenIndex",
+                    "indexed": false
+                },
+                {
+                    "type": "uint256",
+                    "name": "tokenBalance",
+                    "indexed": false
+                },
+                {
+                    "type": "uint256",
+                    "name": "discount",
+                    "indexed": false
+                }
+            ]
+        },
+        {
+            "type": "event",
+            "anonymous": false,
+            "name": "RemoveDiscount",
+            "inputs": [
+                {
+                    "type": "address",
+                    "name": "token",
+                    "indexed": false
+                },
+                {
+                    "type": "uint8",
+                    "name": "tokenType",
+                    "indexed": false
+                },
+                {
+                    "type": "uint256",
+                    "name": "tokenIndex",
+                    "indexed": false
+                },
+                {
+                    "type": "uint256",
+                    "name": "tokenBalance",
+                    "indexed": false
+                }
+            ]
+        },
+        {
+            "type": "function",
+            "name": "discounts",
+            "constant": true,
+            "stateMutability": "view",
+            "payable": false,
+            "inputs": [
+                {
+                    "type": "uint256"
+                }
+            ],
+            "outputs": [
+                {
+                    "type": "uint256"
+                }
+            ]
+        },
+        {
+            "type": "function",
+            "name": "getDiscountInfo",
+            "constant": true,
+            "stateMutability": "view",
+            "payable": false,
+            "inputs": [
+                {
+                    "type": "uint256",
+                    "name": "_index"
+                }
+            ],
+            "outputs": [
+                {
+                    "type": "address",
+                    "name": "token"
+                },
+                {
+                    "type": "uint8",
+                    "name": "tokenType"
+                },
+                {
+                    "type": "uint256",
+                    "name": "tokenIndex"
+                },
+                {
+                    "type": "uint256",
+                    "name": "tokenBalance"
+                },
+                {
+                    "type": "uint256",
+                    "name": "discount"
+                }
+            ]
+        },
+        {
+            "type": "function",
+            "name": "getPrice",
+            "constant": true,
+            "stateMutability": "view",
+            "payable": false,
+            "inputs": [
+                {
+                    "type": "address",
+                    "name": "_actor"
+                },
+                {
+                    "type": "uint256",
+                    "name": "_fee"
+                }
+            ],
+            "outputs": [
+                {
+                    "type": "uint256",
+                    "name": "price"
+                }
+            ]
+        },
+        {
+            "type": "function",
+            "name": "jbxDirectory",
+            "constant": true,
+            "stateMutability": "view",
+            "payable": false,
+            "inputs": [],
+            "outputs": [
+                {
+                    "type": "address"
+                }
+            ]
+        },
+        {
+            "type": "function",
+            "name": "jbxProjects",
+            "constant": true,
+            "stateMutability": "view",
+            "payable": false,
+            "inputs": [],
+            "outputs": [
+                {
+                    "type": "address"
+                }
+            ]
+        },
+        {
+            "type": "function",
+            "name": "operatorStore",
+            "constant": true,
+            "stateMutability": "view",
+            "payable": false,
+            "inputs": [],
+            "outputs": [
+                {
+                    "type": "address"
+                }
+            ]
+        },
+        {
+            "type": "function",
+            "name": "registerDiscount",
+            "constant": false,
+            "payable": false,
+            "inputs": [
+                {
+                    "type": "address",
+                    "name": "_token"
+                },
+                {
+                    "type": "uint8",
+                    "name": "_tokenType"
+                },
+                {
+                    "type": "uint256",
+                    "name": "_tokenIndex"
+                },
+                {
+                    "type": "uint256",
+                    "name": "_tokenBalance"
+                },
+                {
+                    "type": "uint256",
+                    "name": "_discount"
+                }
+            ],
+            "outputs": []
+        },
+        {
+            "type": "function",
+            "name": "removeDiscount",
+            "constant": false,
+            "payable": false,
+            "inputs": [
+                {
+                    "type": "address",
+                    "name": "_token"
+                },
+                {
+                    "type": "uint8",
+                    "name": "_tokenType"
+                },
+                {
+                    "type": "uint256",
+                    "name": "_tokenIndex"
+                },
+                {
+                    "type": "uint256",
+                    "name": "_tokenBalance"
+                }
+            ],
+            "outputs": []
+        }
+    ]
+}

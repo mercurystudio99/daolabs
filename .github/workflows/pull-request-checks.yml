@@ -1,0 +1,93 @@
+name: Pull Request Checks
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+    branches: [feature/nft-landing-page]
+
+  workflow_dispatch:
+
+permissions:
+  checks: write
+  contents: write
+
+jobs:
+  build:
+    name: Verify build
+    runs-on: ubuntu-latest
+    env:
+      VITE_FIREBASE_FUNCTIONS_URL: ${{ secrets.VITE_FIREBASE_FUNCTIONS_URL }}
+      VITE_FIREBASE_DATABASE_URL: ${{ secrets.VITE_FIREBASE_DATABASE_URL }}
+      VITE_API_KEY: ${{ secrets.VITE_API_KEY }}
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+      - name: Cache svelte-kit
+        id: cache-svelte
+        uses: actions/cache@v3
+        with:
+          path: .svelte-kit/
+          key: ${{ runner.os }}-build-${{ github.event.pull_request.number }}
+      - if: ${{ steps.cache-svelte.outputs.cache-hit != 'true' }}
+        name: Clean install dependencies and build
+        run: |
+          npm ci
+          npm run build
+        env:
+          NODE_OPTIONS: --max-old-space-size=8192
+      - name: Check build status
+        run: exit ${{steps.build.outputs.exit_code}}
+
+  tests:
+    needs: build
+    name: Verify Playwright tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+      - name: Cache svelte-kit
+        id: cache-svelte
+        uses: actions/cache@v3
+        with:
+          path: .svelte-kit/
+          key: ${{ runner.os }}-build-${{ github.event.pull_request.number }}
+      - name: Clean install dependencies
+        run: npm ci
+      - name: Install playwright browsers
+        run: npx playwright install --with-deps
+      - name: Run playwright tests
+        run: npm run test
+      - name: Upload playwiright report
+        uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 7
+      - name: Cleanup svelte-kit cache
+        if: always()
+        run: |
+          gh extension install actions/gh-actions-cache
+
+          REPO=${{ github.repository }}
+          BRANCH="refs/pull/${{ github.event.pull_request.number }}/merge"
+
+          echo "Fetching list of cache key"
+          cacheKeysForPR=$(gh actions-cache list -R $REPO -B $BRANCH | cut -f 1 )
+
+          ## Setting this to not fail the workflow while deleting cache keys. 
+          set +e
+          echo "Deleting caches..."
+          for cacheKey in $cacheKeysForPR
+          do
+              gh actions-cache delete $cacheKey -R $REPO -B $BRANCH --confirm
+          done
+          echo "Done"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

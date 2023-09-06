@@ -1,0 +1,73 @@
+<script lang="ts">
+	import { marked } from 'marked';
+
+	const markdown = `    	
+#### **AGREEMENT THAT DOCUMENT TEMPLATES ARE PROVIDED FOR REFERENCE ONLY**
+
+You acknowledge and agree that the making available of this document to you by Movement DAO and DAOLABS LLC. shall not create any confidential or special relationship between you and Movement DAO or DAOLABS LLC. or its affiliates (collectively, the "DAO") and does not constitute the provision of legal advice or other professional advice by the DAO or its legal counsel. 
+
+You should seek advice from an attorney licensed in the relevant jurisdiction(s), as well as a tax professional, before relying on this template document. Additionally, the information provided in this document, any subscription agreement or otherwise by the DAO does not constitute tax advice. 
+
+Any discussion of tax matters is not intended or written to be used, and cannot be used or relied on, for the purpose of tax planning or avoiding penalties under the Internal Revenue Code (or equivalent in the relevant jurisdiction) or promoting, marketing, or recommending to another party any transaction or matter. 
+
+You further agree and acknowledge that any document otherwise provided by the DAO has not been prepared with your specific circumstances in mind, may not be suitable for use in your personal circumstances. Any reliance on this document, any subscription agreement, or anything otherwise provided by DAO, or any information contained therein is at your sole risk and you assume all losses and liability that may result. 
+
+Review all documents carefully for accuracy before using them. There may be **BRACKETED TEXT** requiring your attention.
+
+<br>
+
+---
+
+<br>
+
+#### **AGREEMENT TO NOT USE THE DAO'S APPLICATION FOR THE FOLLOWING ILLEGAL PURPOSES**
+
+THE DAO'S APPLICATION IS INCLUSIVE OF TERMS: SERVICES, BETA SERVICES, DECENTRALIZED APPLICATION, DAPP, WEBSITE, WEB3 STACK, OR TOOLING.
+
+#### **YOU AGREE AND ACKNOWLEDGE** THAT THE USE OF THE SERVICES IS MADE SOLELY AT YOUR OWN RISK AND RESPONSIBILITY AND THAT THE DAO BARES NO RESPONSIBILITY OR LIABILITY FOR YOUR USE OF THE DAO SERVICES PROVIDED INCLUDING, WITHOUT LIMITATION, FOR ANY HARM, LOSS, OR DAMAGES ARISING FROM INCORRECT USE OF THE SERVICES, INCLUDING CONSTRUCTED TRANSACTIONS, NETWORK AND TECHNICAL FAILURES, UNAUTHORIZED ACCESS TO ANY USER WALLETS, LEGAL AND REGULATORY MATTERS AND CONSEQUENCES, OR FRAUD CONDUCTED BY THIRD PARTIES. 
+
+#### **YOU AGREE AND ACKNOWLEDGE** THAT YOU WILL NOT USE THE SERVICES:
+
+1. IN A MANNER THAT VIOLATES ANY APPLICABLE LAW OR REGULATION;
+2. TO FUND TERRORISM OR OTHER CRIMINAL ACTIVITY;
+3. TO CIRCUMVENT ANY EXPORT RESTRICTIONS OR ECONOMIC SANCTIONS; OR
+4. TO ENGAGE IN UNLAWFUL MONEY TRANSMISSION, CURRENCY EXCHANGING, OR MONEY LAUNDERING.
+    
+ANY GOVERNANCE TOKENS YOU MAY OFFER HAVE NOT BEEN APPROVED OR DISAPPROVED BY THE UNITED STATES SECURITIES AND EXCHANGE COMMISSION, ANY STATE SECURITIES COMMISSION, OR OTHER REGULATORY AUTHORITY, NOR HAVE ANY OF THE FOREGOING AUTHORITIES PASSED UPON THE MERITS OF THIS OFFERING OR UPON THE ACCURACY OR ADEQUACY OF THIS AGREEMENT. ANY REPRESENTATION TO THE CONTRARY IS A CRIMINAL OFFENSE. THIS APPLICATION DOES NOT CONSTITUTE AN OFFER OR SOLICITATION TO ANYONE IN ANY JURISDICTION IN WHICH SUCH OFFER OR SOLICITATION IS NOT AUTHORIZED.
+
+**ANY GOVERNANCE TOKENS THAT YOU MAY ACQUIRE FROM THE DAO APPLICATION OR MEMBER PROJECTS HAVE NOT BEEN REGISTERED UNDER THE SECURITIES ACT, STATE SECURITIES LAWS, OR THE LAWS OF ANY COUNTRY OUTSIDE THE UNITED STATES. OUR POSITION IS THAT THEY SHOULD NOT BE SINCE THE PURPOSE OF THE DAO IS TO PROVIDE AN INTERFACE TO ETHEREUM TREASURIES, PROVIDES NO RIGHTS TO ANY DISTRIBUTION OR PROFITS, AND ARE NON-TRANSFERRABLE EXCEPT DETAILED IN THE TERMS OF USE.**
+
+NONE OF THE INFORMATION, SERVICES OR MATERIALS OFFERED ON THE DAO SITE CONSTITUTE, AND ARE NOT INTENDED TO CONSTITUTE, LEGAL, FINANCIAL, TAX, INVESTMENT OR OTHER ADVICE, AND YOU SHOULD NOT ACT OR REFRAIN FROM ACTING BASED ON ANY INFORMATION, SERVICES OR MATERIALS PROVIDED ON THIS SITE. ALL CONTENT ON THE DAO SITE IS INFORMATION OF A GENERAL NATURE AND DOES NOT ADDRESS THE UNIQUE CIRCUMSTANCES OF ANY PARTICULAR USER. 
+
+**YOU ARE STRONGLY URGED TO CONSULT WITH YOUR OWN LEGAL, FINANCIAL, TAX, INVESTMENT AND OTHER ADVISORS AS TO ALL LEGAL, FINANCIAL, TAX AND INVESTMENT RELATED QUESTIONS YOU HAVE.**
+`;
+</script>
+
+<section>
+	<div class="only-mobile">
+		<br />
+		<br />
+	</div>
+	{@html marked(markdown)}
+	<br />
+	<br />
+	<div class="links">
+		<a href={null} on:click|preventDefault={() => window.scrollTo(0, 0)}>Back to top</a> |
+		<a href="/terms-of-service" target="_blank">Terms of Service</a>
+	</div>
+</section>
+
+<style>
+	section {
+		max-width: 900px;
+		margin: 0 auto;
+		text-align: justify;
+		padding: 1rem;
+	}
+	.links {
+		text-align: center;
+		display: flex;
+		justify-content: center;
+		gap: 1rem;
+	}
+</style>

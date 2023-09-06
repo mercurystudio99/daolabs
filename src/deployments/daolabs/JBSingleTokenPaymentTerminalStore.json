@@ -1,0 +1,690 @@
+{
+	"goerli": "0xA062F1C23c5F8b5c1B6193001988CE1c59800244",
+	"abi": [
+		{
+			"type": "constructor",
+			"payable": false,
+			"inputs": [
+				{
+					"type": "address",
+					"name": "_directory"
+				},
+				{
+					"type": "address",
+					"name": "_fundingCycleStore"
+				},
+				{
+					"type": "address",
+					"name": "_prices"
+				}
+			]
+		},
+		{
+			"type": "error",
+			"name": "CURRENCY_MISMATCH",
+			"inputs": []
+		},
+		{
+			"type": "error",
+			"name": "DISTRIBUTION_AMOUNT_LIMIT_REACHED",
+			"inputs": []
+		},
+		{
+			"type": "error",
+			"name": "FUNDING_CYCLE_DISTRIBUTION_PAUSED",
+			"inputs": []
+		},
+		{
+			"type": "error",
+			"name": "FUNDING_CYCLE_PAYMENT_PAUSED",
+			"inputs": []
+		},
+		{
+			"type": "error",
+			"name": "FUNDING_CYCLE_REDEEM_PAUSED",
+			"inputs": []
+		},
+		{
+			"type": "error",
+			"name": "INADEQUATE_CONTROLLER_ALLOWANCE",
+			"inputs": []
+		},
+		{
+			"type": "error",
+			"name": "INADEQUATE_PAYMENT_TERMINAL_STORE_BALANCE",
+			"inputs": []
+		},
+		{
+			"type": "error",
+			"name": "INSUFFICIENT_TOKENS",
+			"inputs": []
+		},
+		{
+			"type": "error",
+			"name": "INVALID_AMOUNT_TO_SEND_DELEGATE",
+			"inputs": []
+		},
+		{
+			"type": "error",
+			"name": "INVALID_FUNDING_CYCLE",
+			"inputs": []
+		},
+		{
+			"type": "error",
+			"name": "PAYMENT_TERMINAL_MIGRATION_NOT_ALLOWED",
+			"inputs": []
+		},
+		{
+			"type": "error",
+			"name": "PRBMath__MulDivOverflow",
+			"inputs": [
+				{
+					"type": "uint256",
+					"name": "prod1"
+				},
+				{
+					"type": "uint256",
+					"name": "denominator"
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "balanceOf",
+			"constant": true,
+			"stateMutability": "view",
+			"payable": false,
+			"inputs": [
+				{
+					"type": "address"
+				},
+				{
+					"type": "uint256"
+				}
+			],
+			"outputs": [
+				{
+					"type": "uint256"
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "currentOverflowOf",
+			"constant": true,
+			"stateMutability": "view",
+			"payable": false,
+			"inputs": [
+				{
+					"type": "address",
+					"name": "_terminal"
+				},
+				{
+					"type": "uint256",
+					"name": "_projectId"
+				}
+			],
+			"outputs": [
+				{
+					"type": "uint256"
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "currentReclaimableOverflowOf",
+			"constant": true,
+			"stateMutability": "view",
+			"payable": false,
+			"inputs": [
+				{
+					"type": "uint256",
+					"name": "_projectId"
+				},
+				{
+					"type": "uint256",
+					"name": "_tokenCount"
+				},
+				{
+					"type": "uint256",
+					"name": "_totalSupply"
+				},
+				{
+					"type": "uint256",
+					"name": "_overflow"
+				}
+			],
+			"outputs": [
+				{
+					"type": "uint256"
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "currentReclaimableOverflowOf",
+			"constant": true,
+			"stateMutability": "view",
+			"payable": false,
+			"inputs": [
+				{
+					"type": "address",
+					"name": "_terminal"
+				},
+				{
+					"type": "uint256",
+					"name": "_projectId"
+				},
+				{
+					"type": "uint256",
+					"name": "_tokenCount"
+				},
+				{
+					"type": "bool",
+					"name": "_useTotalOverflow"
+				}
+			],
+			"outputs": [
+				{
+					"type": "uint256"
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "currentTotalOverflowOf",
+			"constant": true,
+			"stateMutability": "view",
+			"payable": false,
+			"inputs": [
+				{
+					"type": "uint256",
+					"name": "_projectId"
+				},
+				{
+					"type": "uint256",
+					"name": "_decimals"
+				},
+				{
+					"type": "uint256",
+					"name": "_currency"
+				}
+			],
+			"outputs": [
+				{
+					"type": "uint256"
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "directory",
+			"constant": true,
+			"stateMutability": "view",
+			"payable": false,
+			"inputs": [],
+			"outputs": [
+				{
+					"type": "address"
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "fundingCycleStore",
+			"constant": true,
+			"stateMutability": "view",
+			"payable": false,
+			"inputs": [],
+			"outputs": [
+				{
+					"type": "address"
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "prices",
+			"constant": true,
+			"stateMutability": "view",
+			"payable": false,
+			"inputs": [],
+			"outputs": [
+				{
+					"type": "address"
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "recordAddedBalanceFor",
+			"constant": false,
+			"payable": false,
+			"inputs": [
+				{
+					"type": "uint256",
+					"name": "_projectId"
+				},
+				{
+					"type": "uint256",
+					"name": "_amount"
+				}
+			],
+			"outputs": []
+		},
+		{
+			"type": "function",
+			"name": "recordDistributionFor",
+			"constant": false,
+			"payable": false,
+			"inputs": [
+				{
+					"type": "uint256",
+					"name": "_projectId"
+				},
+				{
+					"type": "uint256",
+					"name": "_amount"
+				},
+				{
+					"type": "uint256",
+					"name": "_currency"
+				}
+			],
+			"outputs": [
+				{
+					"type": "tuple",
+					"name": "fundingCycle",
+					"components": [
+						{
+							"type": "uint256",
+							"name": "number"
+						},
+						{
+							"type": "uint256",
+							"name": "configuration"
+						},
+						{
+							"type": "uint256",
+							"name": "basedOn"
+						},
+						{
+							"type": "uint256",
+							"name": "start"
+						},
+						{
+							"type": "uint256",
+							"name": "duration"
+						},
+						{
+							"type": "uint256",
+							"name": "weight"
+						},
+						{
+							"type": "uint256",
+							"name": "discountRate"
+						},
+						{
+							"type": "address",
+							"name": "ballot"
+						},
+						{
+							"type": "uint256",
+							"name": "metadata"
+						}
+					]
+				},
+				{
+					"type": "uint256",
+					"name": "distributedAmount"
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "recordMigration",
+			"constant": false,
+			"payable": false,
+			"inputs": [
+				{
+					"type": "uint256",
+					"name": "_projectId"
+				}
+			],
+			"outputs": [
+				{
+					"type": "uint256",
+					"name": "balance"
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "recordPaymentFrom",
+			"constant": false,
+			"payable": false,
+			"inputs": [
+				{
+					"type": "address",
+					"name": "_payer"
+				},
+				{
+					"type": "tuple",
+					"name": "_amount",
+					"components": [
+						{
+							"type": "address",
+							"name": "token"
+						},
+						{
+							"type": "uint256",
+							"name": "value"
+						},
+						{
+							"type": "uint256",
+							"name": "decimals"
+						},
+						{
+							"type": "uint256",
+							"name": "currency"
+						}
+					]
+				},
+				{
+					"type": "uint256",
+					"name": "_projectId"
+				},
+				{
+					"type": "uint256",
+					"name": "_baseWeightCurrency"
+				},
+				{
+					"type": "address",
+					"name": "_beneficiary"
+				},
+				{
+					"type": "string",
+					"name": "_memo"
+				},
+				{
+					"type": "bytes",
+					"name": "_metadata"
+				}
+			],
+			"outputs": [
+				{
+					"type": "tuple",
+					"name": "fundingCycle",
+					"components": [
+						{
+							"type": "uint256",
+							"name": "number"
+						},
+						{
+							"type": "uint256",
+							"name": "configuration"
+						},
+						{
+							"type": "uint256",
+							"name": "basedOn"
+						},
+						{
+							"type": "uint256",
+							"name": "start"
+						},
+						{
+							"type": "uint256",
+							"name": "duration"
+						},
+						{
+							"type": "uint256",
+							"name": "weight"
+						},
+						{
+							"type": "uint256",
+							"name": "discountRate"
+						},
+						{
+							"type": "address",
+							"name": "ballot"
+						},
+						{
+							"type": "uint256",
+							"name": "metadata"
+						}
+					]
+				},
+				{
+					"type": "uint256",
+					"name": "tokenCount"
+				},
+				{
+					"type": "tuple[]",
+					"name": "delegateAllocations",
+					"components": [
+						{
+							"type": "address",
+							"name": "delegate"
+						},
+						{
+							"type": "uint256",
+							"name": "amount"
+						}
+					]
+				},
+				{
+					"type": "string",
+					"name": "memo"
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "recordRedemptionFor",
+			"constant": false,
+			"payable": false,
+			"inputs": [
+				{
+					"type": "address",
+					"name": "_holder"
+				},
+				{
+					"type": "uint256",
+					"name": "_projectId"
+				},
+				{
+					"type": "uint256",
+					"name": "_tokenCount"
+				},
+				{
+					"type": "string",
+					"name": "_memo"
+				},
+				{
+					"type": "bytes",
+					"name": "_metadata"
+				}
+			],
+			"outputs": [
+				{
+					"type": "tuple",
+					"name": "fundingCycle",
+					"components": [
+						{
+							"type": "uint256",
+							"name": "number"
+						},
+						{
+							"type": "uint256",
+							"name": "configuration"
+						},
+						{
+							"type": "uint256",
+							"name": "basedOn"
+						},
+						{
+							"type": "uint256",
+							"name": "start"
+						},
+						{
+							"type": "uint256",
+							"name": "duration"
+						},
+						{
+							"type": "uint256",
+							"name": "weight"
+						},
+						{
+							"type": "uint256",
+							"name": "discountRate"
+						},
+						{
+							"type": "address",
+							"name": "ballot"
+						},
+						{
+							"type": "uint256",
+							"name": "metadata"
+						}
+					]
+				},
+				{
+					"type": "uint256",
+					"name": "reclaimAmount"
+				},
+				{
+					"type": "tuple[]",
+					"name": "delegateAllocations",
+					"components": [
+						{
+							"type": "address",
+							"name": "delegate"
+						},
+						{
+							"type": "uint256",
+							"name": "amount"
+						}
+					]
+				},
+				{
+					"type": "string",
+					"name": "memo"
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "recordUsedAllowanceOf",
+			"constant": false,
+			"payable": false,
+			"inputs": [
+				{
+					"type": "uint256",
+					"name": "_projectId"
+				},
+				{
+					"type": "uint256",
+					"name": "_amount"
+				},
+				{
+					"type": "uint256",
+					"name": "_currency"
+				}
+			],
+			"outputs": [
+				{
+					"type": "tuple",
+					"name": "fundingCycle",
+					"components": [
+						{
+							"type": "uint256",
+							"name": "number"
+						},
+						{
+							"type": "uint256",
+							"name": "configuration"
+						},
+						{
+							"type": "uint256",
+							"name": "basedOn"
+						},
+						{
+							"type": "uint256",
+							"name": "start"
+						},
+						{
+							"type": "uint256",
+							"name": "duration"
+						},
+						{
+							"type": "uint256",
+							"name": "weight"
+						},
+						{
+							"type": "uint256",
+							"name": "discountRate"
+						},
+						{
+							"type": "address",
+							"name": "ballot"
+						},
+						{
+							"type": "uint256",
+							"name": "metadata"
+						}
+					]
+				},
+				{
+					"type": "uint256",
+					"name": "usedAmount"
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "usedDistributionLimitOf",
+			"constant": true,
+			"stateMutability": "view",
+			"payable": false,
+			"inputs": [
+				{
+					"type": "address"
+				},
+				{
+					"type": "uint256"
+				},
+				{
+					"type": "uint256"
+				}
+			],
+			"outputs": [
+				{
+					"type": "uint256"
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "usedOverflowAllowanceOf",
+			"constant": true,
+			"stateMutability": "view",
+			"payable": false,
+			"inputs": [
+				{
+					"type": "address"
+				},
+				{
+					"type": "uint256"
+				},
+				{
+					"type": "uint256"
+				}
+			],
+			"outputs": [
+				{
+					"type": "uint256"
+				}
+			]
+		}
+	]
+}

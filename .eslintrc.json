@@ -1,0 +1,148 @@
+{
+	"root": true,
+	"parser": "@typescript-eslint/parser",
+	"extends": [
+		"eslint:recommended",
+		"airbnb-typescript/base",
+		"plugin:import/recommended",
+		"plugin:@typescript-eslint/recommended-requiring-type-checking",
+		"plugin:svelte/recommended",
+		"plugin:prettier/recommended"
+	],
+	"ignorePatterns": [
+		".eslintrc.cjs",
+		"**/*.d.ts",
+		"**/*.js",
+		"**/*.html",
+		"vite.config.js",
+		"svelte.config.js",
+		"node_modules/"
+	],
+	"plugins": ["@typescript-eslint", "import"],
+	"overrides": [
+		{
+			"files": ["*.svelte"],
+			"parser": "svelte-eslint-parser",
+			"parserOptions": {
+				"parser": "@typescript-eslint/parser"
+			},
+			"rules": {
+				"import/prefer-default-export": "off",
+				"import/no-mutable-exports": "off",
+				"svelte/no-at-html-tags": "off",
+				"no-underscore-dangle": "off",
+				"@typescript-eslint/no-unsafe-assignment": ["off"],
+				"@typescript-eslint/no-unsafe-call": ["off"],
+				"@typescript-eslint/no-unsafe-member-access": ["off"]
+			}
+		}
+	],
+	"settings": {
+		"svelte": {
+			"ignoreWarnings": [
+				"@typescript-eslint/no-unsafe-assignment",
+				"@typescript-eslint/no-unsafe-member-access"
+			],
+			"kit": {
+				"files": {
+					"routes": "src/routes"
+				}
+			}
+		},
+		"import/internal-regex": "^$",
+		"import/core-modules": [
+			"$app/environment",
+			"$app/stores",
+			"$app/forms",
+			"$app/navigation",
+			"$app/paths"
+		],
+		"import/resolver": {
+			"typescript": {
+				"alwaysTryTypes": true,
+				"project": "./tsconfig.json"
+			},
+			"vite": {
+				"configPath": "./vite.config.js"
+			},
+			"node": {}
+		}
+	},
+	"parserOptions": {
+		"sourceType": "module",
+		"ecmaVersion": 12,
+		"project": ["./tsconfig.json", "./functions/tsconfig.json", "./workers/tsconfig.json"],
+		"tsconfigRootDir": "./",
+		"extraFileExtensions": [".svelte"]
+	},
+	"env": {
+		"browser": true,
+		"es2021": true,
+		"node": true
+	},
+	"globals": {
+		"Address": "readonly",
+		"ReturnType": "readonly",
+		"Record": "readonly",
+		"Partial": "readonly",
+		"ProjectType": "readonly",
+		"Attributes": "readonly",
+		"introJs": "readonly",
+		"NodeJS": "readonly",
+		"Pick": "readonly",
+		"Duration": "readonly"
+	},
+	"rules": {
+		"@typescript-eslint/indent": "off",
+		"@typescript-eslint/no-misused-promises": [
+			"error",
+			{
+				"checksVoidReturn": false
+			}
+		],
+		"import/prefer-default-export": "off",
+		"semi": ["error", "always"],
+		"import/no-extraneous-dependencies": [
+			"error",
+			{
+				"devDependencies": true
+			}
+		],
+		"import/extensions": "off",
+		"import/no-unresolved": "error",
+		"no-mixed-spaces-and-tabs": ["error", "smart-tabs"],
+		"comma-dangle": "off",
+		"no-self-assign": "off",
+		"@typescript-eslint/comma-dangle": "off",
+		"@typescript-eslint/no-unused-expressions": [
+			"error",
+			{
+				"allowShortCircuit": true,
+				"allowTernary": true
+			}
+		],
+		"import/order": [
+			"error",
+			{
+				"pathGroups": [
+					{
+						"pattern": "$/**",
+						"group": "external",
+						"position": "after"
+					}
+				],
+				"groups": [
+					"builtin",
+					"external",
+					"internal",
+					"unknown",
+					"parent",
+					"sibling",
+					"index",
+					"object",
+					"type"
+				]
+			}
+		]
+	}
+}

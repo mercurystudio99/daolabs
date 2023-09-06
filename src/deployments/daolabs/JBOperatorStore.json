@@ -1,0 +1,179 @@
+{
+	"goerli": "0x8DC64F3bbF87c471dcad6897CC3f45A0c8959be8",
+	"abi": [
+		{
+			"type": "error",
+			"name": "PERMISSION_INDEX_OUT_OF_BOUNDS",
+			"inputs": []
+		},
+		{
+			"type": "event",
+			"anonymous": false,
+			"name": "SetOperator",
+			"inputs": [
+				{
+					"type": "address",
+					"name": "operator",
+					"indexed": true
+				},
+				{
+					"type": "address",
+					"name": "account",
+					"indexed": true
+				},
+				{
+					"type": "uint256",
+					"name": "domain",
+					"indexed": true
+				},
+				{
+					"type": "uint256[]",
+					"name": "permissionIndexes",
+					"indexed": false
+				},
+				{
+					"type": "uint256",
+					"name": "packed",
+					"indexed": false
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "hasPermission",
+			"constant": true,
+			"stateMutability": "view",
+			"payable": false,
+			"inputs": [
+				{
+					"type": "address",
+					"name": "_operator"
+				},
+				{
+					"type": "address",
+					"name": "_account"
+				},
+				{
+					"type": "uint256",
+					"name": "_domain"
+				},
+				{
+					"type": "uint256",
+					"name": "_permissionIndex"
+				}
+			],
+			"outputs": [
+				{
+					"type": "bool"
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "hasPermissions",
+			"constant": true,
+			"stateMutability": "view",
+			"payable": false,
+			"inputs": [
+				{
+					"type": "address",
+					"name": "_operator"
+				},
+				{
+					"type": "address",
+					"name": "_account"
+				},
+				{
+					"type": "uint256",
+					"name": "_domain"
+				},
+				{
+					"type": "uint256[]",
+					"name": "_permissionIndexes"
+				}
+			],
+			"outputs": [
+				{
+					"type": "bool"
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "permissionsOf",
+			"constant": true,
+			"stateMutability": "view",
+			"payable": false,
+			"inputs": [
+				{
+					"type": "address"
+				},
+				{
+					"type": "address"
+				},
+				{
+					"type": "uint256"
+				}
+			],
+			"outputs": [
+				{
+					"type": "uint256"
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "setOperator",
+			"constant": false,
+			"payable": false,
+			"inputs": [
+				{
+					"type": "tuple",
+					"name": "_operatorData",
+					"components": [
+						{
+							"type": "address",
+							"name": "operator"
+						},
+						{
+							"type": "uint256",
+							"name": "domain"
+						},
+						{
+							"type": "uint256[]",
+							"name": "permissionIndexes"
+						}
+					]
+				}
+			],
+			"outputs": []
+		},
+		{
+			"type": "function",
+			"name": "setOperators",
+			"constant": false,
+			"payable": false,
+			"inputs": [
+				{
+					"type": "tuple[]",
+					"name": "_operatorData",
+					"components": [
+						{
+							"type": "address",
+							"name": "operator"
+						},
+						{
+							"type": "uint256",
+							"name": "domain"
+						},
+						{
+							"type": "uint256[]",
+							"name": "permissionIndexes"
+						}
+					]
+				}
+			],
+			"outputs": []
+		}
+	]
+}

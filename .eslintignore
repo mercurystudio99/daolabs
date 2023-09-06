@@ -1,0 +1,14 @@
+.eslintrc.cjs
+.github/
+**/*.d.ts
+**/*.html
+vite.config.js
+svelte.config.js
+
+src/lib/shamir/
+node_modules/
+functions/**/*.js
+functions/tests
+workers/**/*.js
+
+playwright.config.ts

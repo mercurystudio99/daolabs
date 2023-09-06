@@ -1,0 +1,179 @@
+{
+	"goerli": "0xf5b8DEA07242c7E48383340beF8334733f514d76",
+	"abi": [
+		{
+			"type": "constructor",
+			"payable": false,
+			"inputs": [
+				{
+					"type": "address",
+					"name": "_owner"
+				}
+			]
+		},
+		{
+			"type": "error",
+			"name": "PRBMath__MulDivOverflow",
+			"inputs": [
+				{
+					"type": "uint256",
+					"name": "prod1"
+				},
+				{
+					"type": "uint256",
+					"name": "denominator"
+				}
+			]
+		},
+		{
+			"type": "error",
+			"name": "PRICE_FEED_ALREADY_EXISTS",
+			"inputs": []
+		},
+		{
+			"type": "error",
+			"name": "PRICE_FEED_NOT_FOUND",
+			"inputs": []
+		},
+		{
+			"type": "event",
+			"anonymous": false,
+			"name": "AddFeed",
+			"inputs": [
+				{
+					"type": "uint256",
+					"name": "currency",
+					"indexed": true
+				},
+				{
+					"type": "uint256",
+					"name": "base",
+					"indexed": true
+				},
+				{
+					"type": "address",
+					"name": "feed",
+					"indexed": false
+				}
+			]
+		},
+		{
+			"type": "event",
+			"anonymous": false,
+			"name": "OwnershipTransferred",
+			"inputs": [
+				{
+					"type": "address",
+					"name": "previousOwner",
+					"indexed": true
+				},
+				{
+					"type": "address",
+					"name": "newOwner",
+					"indexed": true
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "addFeedFor",
+			"constant": false,
+			"payable": false,
+			"inputs": [
+				{
+					"type": "uint256",
+					"name": "_currency"
+				},
+				{
+					"type": "uint256",
+					"name": "_base"
+				},
+				{
+					"type": "address",
+					"name": "_feed"
+				}
+			],
+			"outputs": []
+		},
+		{
+			"type": "function",
+			"name": "feedFor",
+			"constant": true,
+			"stateMutability": "view",
+			"payable": false,
+			"inputs": [
+				{
+					"type": "uint256"
+				},
+				{
+					"type": "uint256"
+				}
+			],
+			"outputs": [
+				{
+					"type": "address"
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "owner",
+			"constant": true,
+			"stateMutability": "view",
+			"payable": false,
+			"inputs": [],
+			"outputs": [
+				{
+					"type": "address"
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "priceFor",
+			"constant": true,
+			"stateMutability": "view",
+			"payable": false,
+			"inputs": [
+				{
+					"type": "uint256",
+					"name": "_currency"
+				},
+				{
+					"type": "uint256",
+					"name": "_base"
+				},
+				{
+					"type": "uint256",
+					"name": "_decimals"
+				}
+			],
+			"outputs": [
+				{
+					"type": "uint256"
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "renounceOwnership",
+			"constant": false,
+			"payable": false,
+			"inputs": [],
+			"outputs": []
+		},
+		{
+			"type": "function",
+			"name": "transferOwnership",
+			"constant": false,
+			"payable": false,
+			"inputs": [
+				{
+					"type": "address",
+					"name": "newOwner"
+				}
+			],
+			"outputs": []
+		}
+	]
+}

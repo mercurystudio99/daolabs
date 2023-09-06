@@ -1,0 +1,204 @@
+{
+    "goerli": "",
+    "abi": [
+        {
+            "type": "constructor",
+            "payable": false,
+            "inputs": [
+                {
+                    "type": "address",
+                    "name": "_owner"
+                },
+                {
+                    "type": "string",
+                    "name": "_baseUri"
+                },
+                {
+                    "type": "string",
+                    "name": "_contractUri"
+                },
+                {
+                    "type": "uint256[]",
+                    "name": "_tokenRanges"
+                }
+            ]
+        },
+        {
+            "type": "error",
+            "name": "INSUFFICIENT_BALANCE",
+            "inputs": []
+        },
+        {
+            "type": "error",
+            "name": "INVALID_LOCK_DURATION",
+            "inputs": []
+        },
+        {
+            "type": "event",
+            "anonymous": false,
+            "name": "OwnershipTransferred",
+            "inputs": [
+                {
+                    "type": "address",
+                    "name": "previousOwner",
+                    "indexed": true
+                },
+                {
+                    "type": "address",
+                    "name": "newOwner",
+                    "indexed": true
+                }
+            ]
+        },
+        {
+            "type": "function",
+            "name": "baseUri",
+            "constant": true,
+            "stateMutability": "view",
+            "payable": false,
+            "inputs": [],
+            "outputs": [
+                {
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "type": "function",
+            "name": "contractURI",
+            "constant": true,
+            "stateMutability": "view",
+            "payable": false,
+            "inputs": [],
+            "outputs": [
+                {
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "type": "function",
+            "name": "contractUri",
+            "constant": true,
+            "stateMutability": "view",
+            "payable": false,
+            "inputs": [],
+            "outputs": [
+                {
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "type": "function",
+            "name": "owner",
+            "constant": true,
+            "stateMutability": "view",
+            "payable": false,
+            "inputs": [],
+            "outputs": [
+                {
+                    "type": "address"
+                }
+            ]
+        },
+        {
+            "type": "function",
+            "name": "renounceOwnership",
+            "constant": false,
+            "payable": false,
+            "inputs": [],
+            "outputs": []
+        },
+        {
+            "type": "function",
+            "name": "setBaseURI",
+            "constant": false,
+            "payable": false,
+            "inputs": [
+                {
+                    "type": "string",
+                    "name": "_baseUri"
+                }
+            ],
+            "outputs": []
+        },
+        {
+            "type": "function",
+            "name": "setContractUri",
+            "constant": false,
+            "payable": false,
+            "inputs": [
+                {
+                    "type": "string",
+                    "name": "_contractUri"
+                }
+            ],
+            "outputs": []
+        },
+        {
+            "type": "function",
+            "name": "tokenRanges",
+            "constant": true,
+            "stateMutability": "view",
+            "payable": false,
+            "inputs": [
+                {
+                    "type": "uint256"
+                }
+            ],
+            "outputs": [
+                {
+                    "type": "uint256"
+                }
+            ]
+        },
+        {
+            "type": "function",
+            "name": "tokenURI",
+            "constant": true,
+            "stateMutability": "view",
+            "payable": false,
+            "inputs": [
+                {
+                    "type": "uint256",
+                    "name": "_tokenId"
+                },
+                {
+                    "type": "uint256",
+                    "name": "_amount"
+                },
+                {
+                    "type": "uint256",
+                    "name": "_duration"
+                },
+                {
+                    "type": "uint256",
+                    "name": "_lockedUntil"
+                },
+                {
+                    "type": "uint256[]",
+                    "name": "_lockDurationOptions"
+                }
+            ],
+            "outputs": [
+                {
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "type": "function",
+            "name": "transferOwnership",
+            "constant": false,
+            "payable": false,
+            "inputs": [
+                {
+                    "type": "address",
+                    "name": "newOwner"
+                }
+            ],
+            "outputs": []
+        }
+    ]
+}

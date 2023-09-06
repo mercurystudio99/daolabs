@@ -1,0 +1,12 @@
+{
+	"rules": {
+		".read": "now < 1704084567000",
+		".write": "now < 1704084567000",
+		"collections": {
+			".indexOn": ["id", "network"]
+		},
+		"revenue-splits": {
+			".indexOn": "network"
+		}
+	}
+}

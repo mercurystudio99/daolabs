@@ -1,0 +1,271 @@
+{
+	"goerli": "0x7ddd63CEc18E095cb2e91075F6b25C22F620FeF4",
+	"abi": [
+		{
+			"type": "constructor",
+			"payable": false,
+			"inputs": [
+				{
+					"type": "address",
+					"name": "_operatorStore"
+				},
+				{
+					"type": "address",
+					"name": "_projects"
+				},
+				{
+					"type": "address",
+					"name": "_directory"
+				}
+			]
+		},
+		{
+			"type": "error",
+			"name": "INVALID_LOCKED_UNTIL",
+			"inputs": []
+		},
+		{
+			"type": "error",
+			"name": "INVALID_PROJECT_ID",
+			"inputs": []
+		},
+		{
+			"type": "error",
+			"name": "INVALID_SPLIT_PERCENT",
+			"inputs": []
+		},
+		{
+			"type": "error",
+			"name": "INVALID_TOTAL_PERCENT",
+			"inputs": []
+		},
+		{
+			"type": "error",
+			"name": "PREVIOUS_LOCKED_SPLITS_NOT_INCLUDED",
+			"inputs": []
+		},
+		{
+			"type": "error",
+			"name": "UNAUTHORIZED",
+			"inputs": []
+		},
+		{
+			"type": "event",
+			"anonymous": false,
+			"name": "SetSplit",
+			"inputs": [
+				{
+					"type": "uint256",
+					"name": "projectId",
+					"indexed": true
+				},
+				{
+					"type": "uint256",
+					"name": "domain",
+					"indexed": true
+				},
+				{
+					"type": "uint256",
+					"name": "group",
+					"indexed": true
+				},
+				{
+					"type": "tuple",
+					"name": "split",
+					"indexed": false,
+					"components": [
+						{
+							"type": "bool",
+							"name": "preferClaimed"
+						},
+						{
+							"type": "bool",
+							"name": "preferAddToBalance"
+						},
+						{
+							"type": "uint256",
+							"name": "percent"
+						},
+						{
+							"type": "uint256",
+							"name": "projectId"
+						},
+						{
+							"type": "address",
+							"name": "beneficiary"
+						},
+						{
+							"type": "uint256",
+							"name": "lockedUntil"
+						},
+						{
+							"type": "address",
+							"name": "allocator"
+						}
+					]
+				},
+				{
+					"type": "address",
+					"name": "caller",
+					"indexed": false
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "directory",
+			"constant": true,
+			"stateMutability": "view",
+			"payable": false,
+			"inputs": [],
+			"outputs": [
+				{
+					"type": "address"
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "operatorStore",
+			"constant": true,
+			"stateMutability": "view",
+			"payable": false,
+			"inputs": [],
+			"outputs": [
+				{
+					"type": "address"
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "projects",
+			"constant": true,
+			"stateMutability": "view",
+			"payable": false,
+			"inputs": [],
+			"outputs": [
+				{
+					"type": "address"
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "set",
+			"constant": false,
+			"payable": false,
+			"inputs": [
+				{
+					"type": "uint256",
+					"name": "_projectId"
+				},
+				{
+					"type": "uint256",
+					"name": "_domain"
+				},
+				{
+					"type": "tuple[]",
+					"name": "_groupedSplits",
+					"components": [
+						{
+							"type": "uint256",
+							"name": "group"
+						},
+						{
+							"type": "tuple[]",
+							"name": "splits",
+							"components": [
+								{
+									"type": "bool",
+									"name": "preferClaimed"
+								},
+								{
+									"type": "bool",
+									"name": "preferAddToBalance"
+								},
+								{
+									"type": "uint256",
+									"name": "percent"
+								},
+								{
+									"type": "uint256",
+									"name": "projectId"
+								},
+								{
+									"type": "address",
+									"name": "beneficiary"
+								},
+								{
+									"type": "uint256",
+									"name": "lockedUntil"
+								},
+								{
+									"type": "address",
+									"name": "allocator"
+								}
+							]
+						}
+					]
+				}
+			],
+			"outputs": []
+		},
+		{
+			"type": "function",
+			"name": "splitsOf",
+			"constant": true,
+			"stateMutability": "view",
+			"payable": false,
+			"inputs": [
+				{
+					"type": "uint256",
+					"name": "_projectId"
+				},
+				{
+					"type": "uint256",
+					"name": "_domain"
+				},
+				{
+					"type": "uint256",
+					"name": "_group"
+				}
+			],
+			"outputs": [
+				{
+					"type": "tuple[]",
+					"components": [
+						{
+							"type": "bool",
+							"name": "preferClaimed"
+						},
+						{
+							"type": "bool",
+							"name": "preferAddToBalance"
+						},
+						{
+							"type": "uint256",
+							"name": "percent"
+						},
+						{
+							"type": "uint256",
+							"name": "projectId"
+						},
+						{
+							"type": "address",
+							"name": "beneficiary"
+						},
+						{
+							"type": "uint256",
+							"name": "lockedUntil"
+						},
+						{
+							"type": "address",
+							"name": "allocator"
+						}
+					]
+				}
+			]
+		}
+	]
+}

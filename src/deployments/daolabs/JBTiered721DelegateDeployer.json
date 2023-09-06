@@ -1,0 +1,239 @@
+{
+	"goerli": "0xcCB0bfd9d29a7573d23D1167D3C8A89d04559EdC",
+	"abi": [
+		{
+			"type": "constructor",
+			"payable": false,
+			"inputs": [
+				{
+					"type": "address",
+					"name": "_globalGovernance"
+				},
+				{
+					"type": "address",
+					"name": "_tieredGovernance"
+				},
+				{
+					"type": "address",
+					"name": "_noGovernance"
+				}
+			]
+		},
+		{
+			"type": "error",
+			"name": "INVALID_GOVERNANCE_TYPE",
+			"inputs": []
+		},
+		{
+			"type": "event",
+			"anonymous": false,
+			"name": "DelegateDeployed",
+			"inputs": [
+				{
+					"type": "uint256",
+					"name": "projectId",
+					"indexed": true
+				},
+				{
+					"type": "address",
+					"name": "newDelegate",
+					"indexed": false
+				},
+				{
+					"type": "uint8",
+					"name": "governanceType",
+					"indexed": false
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "deployDelegateFor",
+			"constant": false,
+			"payable": false,
+			"inputs": [
+				{
+					"type": "uint256",
+					"name": "_projectId"
+				},
+				{
+					"type": "tuple",
+					"name": "_deployTiered721DelegateData",
+					"components": [
+						{
+							"type": "address",
+							"name": "directory"
+						},
+						{
+							"type": "string",
+							"name": "name"
+						},
+						{
+							"type": "string",
+							"name": "symbol"
+						},
+						{
+							"type": "address",
+							"name": "fundingCycleStore"
+						},
+						{
+							"type": "string",
+							"name": "baseUri"
+						},
+						{
+							"type": "address",
+							"name": "tokenUriResolver"
+						},
+						{
+							"type": "string",
+							"name": "contractUri"
+						},
+						{
+							"type": "address",
+							"name": "owner"
+						},
+						{
+							"type": "tuple",
+							"name": "pricing",
+							"components": [
+								{
+									"type": "tuple[]",
+									"name": "tiers",
+									"components": [
+										{
+											"type": "uint80",
+											"name": "contributionFloor"
+										},
+										{
+											"type": "uint48",
+											"name": "lockedUntil"
+										},
+										{
+											"type": "uint40",
+											"name": "initialQuantity"
+										},
+										{
+											"type": "uint16",
+											"name": "votingUnits"
+										},
+										{
+											"type": "uint16",
+											"name": "reservedRate"
+										},
+										{
+											"type": "address",
+											"name": "reservedTokenBeneficiary"
+										},
+										{
+											"type": "bytes32",
+											"name": "encodedIPFSUri"
+										},
+										{
+											"type": "bool",
+											"name": "allowManualMint"
+										},
+										{
+											"type": "bool",
+											"name": "shouldUseBeneficiaryAsDefault"
+										},
+										{
+											"type": "bool",
+											"name": "transfersPausable"
+										}
+									]
+								},
+								{
+									"type": "uint256",
+									"name": "currency"
+								},
+								{
+									"type": "uint256",
+									"name": "decimals"
+								},
+								{
+									"type": "address",
+									"name": "prices"
+								}
+							]
+						},
+						{
+							"type": "address",
+							"name": "reservedTokenBeneficiary"
+						},
+						{
+							"type": "address",
+							"name": "store"
+						},
+						{
+							"type": "tuple",
+							"name": "flags",
+							"components": [
+								{
+									"type": "bool",
+									"name": "lockReservedTokenChanges"
+								},
+								{
+									"type": "bool",
+									"name": "lockVotingUnitChanges"
+								},
+								{
+									"type": "bool",
+									"name": "lockManualMintingChanges"
+								}
+							]
+						},
+						{
+							"type": "uint8",
+							"name": "governanceType"
+						}
+					]
+				}
+			],
+			"outputs": [
+				{
+					"type": "address",
+					"name": "newDelegate"
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "globalGovernance",
+			"constant": true,
+			"stateMutability": "view",
+			"payable": false,
+			"inputs": [],
+			"outputs": [
+				{
+					"type": "address"
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "noGovernance",
+			"constant": true,
+			"stateMutability": "view",
+			"payable": false,
+			"inputs": [],
+			"outputs": [
+				{
+					"type": "address"
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "tieredGovernance",
+			"constant": true,
+			"stateMutability": "view",
+			"payable": false,
+			"inputs": [],
+			"outputs": [
+				{
+					"type": "address"
+				}
+			]
+		}
+	]
+}

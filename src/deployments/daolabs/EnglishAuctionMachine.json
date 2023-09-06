@@ -1,0 +1,403 @@
+{
+	"goerli": "0x5a869E6dA3C41E2d5C97F012272FCcb4A98d852b",
+	"abi": [
+		{
+			"type": "error",
+			"name": "AUCTION_ACTIVE",
+			"inputs": []
+		},
+		{
+			"type": "error",
+			"name": "AUCTION_ENDED",
+			"inputs": []
+		},
+		{
+			"type": "error",
+			"name": "INVALID_BID",
+			"inputs": []
+		},
+		{
+			"type": "error",
+			"name": "INVALID_DURATION",
+			"inputs": []
+		},
+		{
+			"type": "error",
+			"name": "INVALID_OPERATION",
+			"inputs": []
+		},
+		{
+			"type": "error",
+			"name": "SUPPLY_EXHAUSTED",
+			"inputs": []
+		},
+		{
+			"type": "event",
+			"anonymous": false,
+			"name": "AuctionEnded",
+			"inputs": [
+				{
+					"type": "address",
+					"name": "winner",
+					"indexed": false
+				},
+				{
+					"type": "uint256",
+					"name": "price",
+					"indexed": false
+				},
+				{
+					"type": "address",
+					"name": "token",
+					"indexed": false
+				},
+				{
+					"type": "uint256",
+					"name": "tokenId",
+					"indexed": false
+				}
+			]
+		},
+		{
+			"type": "event",
+			"anonymous": false,
+			"name": "AuctionStarted",
+			"inputs": [
+				{
+					"type": "uint256",
+					"name": "expiration",
+					"indexed": false
+				},
+				{
+					"type": "address",
+					"name": "token",
+					"indexed": false
+				},
+				{
+					"type": "uint256",
+					"name": "tokenId",
+					"indexed": false
+				}
+			]
+		},
+		{
+			"type": "event",
+			"anonymous": false,
+			"name": "Bid",
+			"inputs": [
+				{
+					"type": "address",
+					"name": "bidder",
+					"indexed": true
+				},
+				{
+					"type": "uint256",
+					"name": "amount",
+					"indexed": false
+				},
+				{
+					"type": "address",
+					"name": "token",
+					"indexed": false
+				},
+				{
+					"type": "uint256",
+					"name": "tokenId",
+					"indexed": false
+				}
+			]
+		},
+		{
+			"type": "event",
+			"anonymous": false,
+			"name": "OwnershipTransferred",
+			"inputs": [
+				{
+					"type": "address",
+					"name": "previousOwner",
+					"indexed": true
+				},
+				{
+					"type": "address",
+					"name": "newOwner",
+					"indexed": true
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "auctionDuration",
+			"constant": true,
+			"stateMutability": "view",
+			"payable": false,
+			"inputs": [],
+			"outputs": [
+				{
+					"type": "uint256"
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "auctionExpiration",
+			"constant": true,
+			"stateMutability": "view",
+			"payable": false,
+			"inputs": [],
+			"outputs": [
+				{
+					"type": "uint256"
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "bid",
+			"constant": false,
+			"stateMutability": "payable",
+			"payable": true,
+			"inputs": [],
+			"outputs": []
+		},
+		{
+			"type": "function",
+			"name": "completedAuctions",
+			"constant": true,
+			"stateMutability": "view",
+			"payable": false,
+			"inputs": [],
+			"outputs": [
+				{
+					"type": "uint256"
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "currentBid",
+			"constant": true,
+			"stateMutability": "view",
+			"payable": false,
+			"inputs": [],
+			"outputs": [
+				{
+					"type": "uint256"
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "currentBidder",
+			"constant": true,
+			"stateMutability": "view",
+			"payable": false,
+			"inputs": [],
+			"outputs": [
+				{
+					"type": "address"
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "currentPrice",
+			"constant": true,
+			"stateMutability": "view",
+			"payable": false,
+			"inputs": [],
+			"outputs": [
+				{
+					"type": "uint256"
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "currentTokenId",
+			"constant": true,
+			"stateMutability": "view",
+			"payable": false,
+			"inputs": [],
+			"outputs": [
+				{
+					"type": "uint256"
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "initialize",
+			"constant": false,
+			"payable": false,
+			"inputs": [
+				{
+					"type": "uint256",
+					"name": "_maxAuctions"
+				},
+				{
+					"type": "uint256",
+					"name": "_auctionDuration"
+				},
+				{
+					"type": "uint256",
+					"name": "_projectId"
+				},
+				{
+					"type": "address",
+					"name": "_jbxDirectory"
+				},
+				{
+					"type": "address",
+					"name": "_token"
+				},
+				{
+					"type": "address",
+					"name": "_owner"
+				}
+			],
+			"outputs": []
+		},
+		{
+			"type": "function",
+			"name": "jbxDirectory",
+			"constant": true,
+			"stateMutability": "view",
+			"payable": false,
+			"inputs": [],
+			"outputs": [
+				{
+					"type": "address"
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "jbxProjectId",
+			"constant": true,
+			"stateMutability": "view",
+			"payable": false,
+			"inputs": [],
+			"outputs": [
+				{
+					"type": "uint256"
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "maxAuctions",
+			"constant": true,
+			"stateMutability": "view",
+			"payable": false,
+			"inputs": [],
+			"outputs": [
+				{
+					"type": "uint256"
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "owner",
+			"constant": true,
+			"stateMutability": "view",
+			"payable": false,
+			"inputs": [],
+			"outputs": [
+				{
+					"type": "address"
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "recoverToken",
+			"constant": false,
+			"payable": false,
+			"inputs": [
+				{
+					"type": "address",
+					"name": "_account"
+				},
+				{
+					"type": "uint256",
+					"name": "_tokenId"
+				}
+			],
+			"outputs": []
+		},
+		{
+			"type": "function",
+			"name": "renounceOwnership",
+			"constant": false,
+			"payable": false,
+			"inputs": [],
+			"outputs": []
+		},
+		{
+			"type": "function",
+			"name": "settle",
+			"constant": false,
+			"payable": false,
+			"inputs": [],
+			"outputs": []
+		},
+		{
+			"type": "function",
+			"name": "supportsInterface",
+			"constant": true,
+			"stateMutability": "pure",
+			"payable": false,
+			"inputs": [
+				{
+					"type": "bytes4",
+					"name": "_interfaceId"
+				}
+			],
+			"outputs": [
+				{
+					"type": "bool"
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "timeLeft",
+			"constant": true,
+			"stateMutability": "view",
+			"payable": false,
+			"inputs": [],
+			"outputs": [
+				{
+					"type": "uint256"
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "token",
+			"constant": true,
+			"stateMutability": "view",
+			"payable": false,
+			"inputs": [],
+			"outputs": [
+				{
+					"type": "address"
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "transferOwnership",
+			"constant": false,
+			"payable": false,
+			"inputs": [
+				{
+					"type": "address",
+					"name": "newOwner"
+				}
+			],
+			"outputs": []
+		}
+	]
+}

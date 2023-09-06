@@ -1,0 +1,375 @@
+{
+	"goerli": "0x79B96c1FFe42D28442251BF3e0B9AF3AB3A452dE",
+	"abi": [
+		{
+			"type": "constructor",
+			"payable": false,
+			"inputs": [
+				{
+					"type": "address",
+					"name": "_directory"
+				},
+				{
+					"type": "address",
+					"name": "_operatorStore"
+				},
+				{
+					"type": "address",
+					"name": "_projects"
+				},
+				{
+					"type": "address",
+					"name": "_owner"
+				}
+			]
+		},
+		{
+			"type": "error",
+			"name": "DUPLICATE_ROLE",
+			"inputs": []
+		},
+		{
+			"type": "error",
+			"name": "INVALID_ROLE",
+			"inputs": []
+		},
+		{
+			"type": "error",
+			"name": "UNAUTHORIZED",
+			"inputs": []
+		},
+		{
+			"type": "event",
+			"anonymous": false,
+			"name": "AddRole",
+			"inputs": [
+				{
+					"type": "uint256",
+					"name": "_projectId",
+					"indexed": true
+				},
+				{
+					"type": "string",
+					"name": "_role",
+					"indexed": false
+				}
+			]
+		},
+		{
+			"type": "event",
+			"anonymous": false,
+			"name": "GrantRole",
+			"inputs": [
+				{
+					"type": "uint256",
+					"name": "_projectId",
+					"indexed": true
+				},
+				{
+					"type": "string",
+					"name": "_role",
+					"indexed": false
+				},
+				{
+					"type": "address",
+					"name": "_account",
+					"indexed": false
+				}
+			]
+		},
+		{
+			"type": "event",
+			"anonymous": false,
+			"name": "OwnershipTransferred",
+			"inputs": [
+				{
+					"type": "address",
+					"name": "previousOwner",
+					"indexed": true
+				},
+				{
+					"type": "address",
+					"name": "newOwner",
+					"indexed": true
+				}
+			]
+		},
+		{
+			"type": "event",
+			"anonymous": false,
+			"name": "RemoveRole",
+			"inputs": [
+				{
+					"type": "uint256",
+					"name": "_projectId",
+					"indexed": true
+				},
+				{
+					"type": "string",
+					"name": "_role",
+					"indexed": false
+				}
+			]
+		},
+		{
+			"type": "event",
+			"anonymous": false,
+			"name": "RevokeRole",
+			"inputs": [
+				{
+					"type": "uint256",
+					"name": "_projectId",
+					"indexed": true
+				},
+				{
+					"type": "string",
+					"name": "_role",
+					"indexed": false
+				},
+				{
+					"type": "address",
+					"name": "_account",
+					"indexed": false
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "addProjectRole",
+			"constant": false,
+			"payable": false,
+			"inputs": [
+				{
+					"type": "uint256",
+					"name": "_projectId"
+				},
+				{
+					"type": "string",
+					"name": "_role"
+				}
+			],
+			"outputs": []
+		},
+		{
+			"type": "function",
+			"name": "confirmUserRole",
+			"constant": true,
+			"stateMutability": "view",
+			"payable": false,
+			"inputs": [
+				{
+					"type": "uint256",
+					"name": "_projectId"
+				},
+				{
+					"type": "address",
+					"name": "_account"
+				},
+				{
+					"type": "string",
+					"name": "_role"
+				}
+			],
+			"outputs": [
+				{
+					"type": "bool",
+					"name": "authorized"
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "directory",
+			"constant": true,
+			"stateMutability": "view",
+			"payable": false,
+			"inputs": [],
+			"outputs": [
+				{
+					"type": "address"
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "getProjectUsers",
+			"constant": true,
+			"stateMutability": "view",
+			"payable": false,
+			"inputs": [
+				{
+					"type": "uint256",
+					"name": "_projectId"
+				},
+				{
+					"type": "string",
+					"name": "_role"
+				}
+			],
+			"outputs": [
+				{
+					"type": "address[]"
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "getUserRoles",
+			"constant": true,
+			"stateMutability": "view",
+			"payable": false,
+			"inputs": [
+				{
+					"type": "uint256",
+					"name": "_projectId"
+				},
+				{
+					"type": "address",
+					"name": "_account"
+				}
+			],
+			"outputs": [
+				{
+					"type": "string[]"
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "grantProjectRole",
+			"constant": false,
+			"payable": false,
+			"inputs": [
+				{
+					"type": "uint256",
+					"name": "_projectId"
+				},
+				{
+					"type": "address",
+					"name": "_account"
+				},
+				{
+					"type": "string",
+					"name": "_role"
+				}
+			],
+			"outputs": []
+		},
+		{
+			"type": "function",
+			"name": "listProjectRoles",
+			"constant": true,
+			"stateMutability": "view",
+			"payable": false,
+			"inputs": [
+				{
+					"type": "uint256",
+					"name": "_projectId"
+				}
+			],
+			"outputs": [
+				{
+					"type": "string[]"
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "operatorStore",
+			"constant": true,
+			"stateMutability": "view",
+			"payable": false,
+			"inputs": [],
+			"outputs": [
+				{
+					"type": "address"
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "owner",
+			"constant": true,
+			"stateMutability": "view",
+			"payable": false,
+			"inputs": [],
+			"outputs": [
+				{
+					"type": "address"
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "projects",
+			"constant": true,
+			"stateMutability": "view",
+			"payable": false,
+			"inputs": [],
+			"outputs": [
+				{
+					"type": "address"
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "removeProjectRole",
+			"constant": false,
+			"payable": false,
+			"inputs": [
+				{
+					"type": "uint256",
+					"name": "_projectId"
+				},
+				{
+					"type": "string",
+					"name": "_role"
+				}
+			],
+			"outputs": []
+		},
+		{
+			"type": "function",
+			"name": "renounceOwnership",
+			"constant": false,
+			"payable": false,
+			"inputs": [],
+			"outputs": []
+		},
+		{
+			"type": "function",
+			"name": "revokeProjectRole",
+			"constant": false,
+			"payable": false,
+			"inputs": [
+				{
+					"type": "uint256",
+					"name": "_projectId"
+				},
+				{
+					"type": "address",
+					"name": "_account"
+				},
+				{
+					"type": "string",
+					"name": "_role"
+				}
+			],
+			"outputs": []
+		},
+		{
+			"type": "function",
+			"name": "transferOwnership",
+			"constant": false,
+			"payable": false,
+			"inputs": [
+				{
+					"type": "address",
+					"name": "newOwner"
+				}
+			],
+			"outputs": []
+		}
+	]
+}

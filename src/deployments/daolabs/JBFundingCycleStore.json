@@ -1,0 +1,510 @@
+{
+	"goerli": "0x0d5EB1CEEc1e9c9A7aC88b5cd39ba5C7df57dc95",
+	"abi": [
+		{
+			"type": "constructor",
+			"payable": false,
+			"inputs": [
+				{
+					"type": "address",
+					"name": "_directory"
+				}
+			]
+		},
+		{
+			"type": "error",
+			"name": "CONTROLLER_UNAUTHORIZED",
+			"inputs": []
+		},
+		{
+			"type": "error",
+			"name": "INVALID_BALLOT",
+			"inputs": []
+		},
+		{
+			"type": "error",
+			"name": "INVALID_DISCOUNT_RATE",
+			"inputs": []
+		},
+		{
+			"type": "error",
+			"name": "INVALID_DURATION",
+			"inputs": []
+		},
+		{
+			"type": "error",
+			"name": "INVALID_TIMEFRAME",
+			"inputs": []
+		},
+		{
+			"type": "error",
+			"name": "INVALID_WEIGHT",
+			"inputs": []
+		},
+		{
+			"type": "error",
+			"name": "NO_SAME_BLOCK_RECONFIGURATION",
+			"inputs": []
+		},
+		{
+			"type": "error",
+			"name": "PRBMath__MulDivOverflow",
+			"inputs": [
+				{
+					"type": "uint256",
+					"name": "prod1"
+				},
+				{
+					"type": "uint256",
+					"name": "denominator"
+				}
+			]
+		},
+		{
+			"type": "event",
+			"anonymous": false,
+			"name": "Configure",
+			"inputs": [
+				{
+					"type": "uint256",
+					"name": "configuration",
+					"indexed": true
+				},
+				{
+					"type": "uint256",
+					"name": "projectId",
+					"indexed": true
+				},
+				{
+					"type": "tuple",
+					"name": "data",
+					"indexed": false,
+					"components": [
+						{
+							"type": "uint256",
+							"name": "duration"
+						},
+						{
+							"type": "uint256",
+							"name": "weight"
+						},
+						{
+							"type": "uint256",
+							"name": "discountRate"
+						},
+						{
+							"type": "address",
+							"name": "ballot"
+						}
+					]
+				},
+				{
+					"type": "uint256",
+					"name": "metadata",
+					"indexed": false
+				},
+				{
+					"type": "uint256",
+					"name": "mustStartAtOrAfter",
+					"indexed": false
+				},
+				{
+					"type": "address",
+					"name": "caller",
+					"indexed": false
+				}
+			]
+		},
+		{
+			"type": "event",
+			"anonymous": false,
+			"name": "Init",
+			"inputs": [
+				{
+					"type": "uint256",
+					"name": "configuration",
+					"indexed": true
+				},
+				{
+					"type": "uint256",
+					"name": "projectId",
+					"indexed": true
+				},
+				{
+					"type": "uint256",
+					"name": "basedOn",
+					"indexed": true
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "configureFor",
+			"constant": false,
+			"payable": false,
+			"inputs": [
+				{
+					"type": "uint256",
+					"name": "_projectId"
+				},
+				{
+					"type": "tuple",
+					"name": "_data",
+					"components": [
+						{
+							"type": "uint256",
+							"name": "duration"
+						},
+						{
+							"type": "uint256",
+							"name": "weight"
+						},
+						{
+							"type": "uint256",
+							"name": "discountRate"
+						},
+						{
+							"type": "address",
+							"name": "ballot"
+						}
+					]
+				},
+				{
+					"type": "uint256",
+					"name": "_metadata"
+				},
+				{
+					"type": "uint256",
+					"name": "_mustStartAtOrAfter"
+				}
+			],
+			"outputs": [
+				{
+					"type": "tuple",
+					"components": [
+						{
+							"type": "uint256",
+							"name": "number"
+						},
+						{
+							"type": "uint256",
+							"name": "configuration"
+						},
+						{
+							"type": "uint256",
+							"name": "basedOn"
+						},
+						{
+							"type": "uint256",
+							"name": "start"
+						},
+						{
+							"type": "uint256",
+							"name": "duration"
+						},
+						{
+							"type": "uint256",
+							"name": "weight"
+						},
+						{
+							"type": "uint256",
+							"name": "discountRate"
+						},
+						{
+							"type": "address",
+							"name": "ballot"
+						},
+						{
+							"type": "uint256",
+							"name": "metadata"
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "currentBallotStateOf",
+			"constant": true,
+			"stateMutability": "view",
+			"payable": false,
+			"inputs": [
+				{
+					"type": "uint256",
+					"name": "_projectId"
+				}
+			],
+			"outputs": [
+				{
+					"type": "uint8"
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "currentOf",
+			"constant": true,
+			"stateMutability": "view",
+			"payable": false,
+			"inputs": [
+				{
+					"type": "uint256",
+					"name": "_projectId"
+				}
+			],
+			"outputs": [
+				{
+					"type": "tuple",
+					"name": "fundingCycle",
+					"components": [
+						{
+							"type": "uint256",
+							"name": "number"
+						},
+						{
+							"type": "uint256",
+							"name": "configuration"
+						},
+						{
+							"type": "uint256",
+							"name": "basedOn"
+						},
+						{
+							"type": "uint256",
+							"name": "start"
+						},
+						{
+							"type": "uint256",
+							"name": "duration"
+						},
+						{
+							"type": "uint256",
+							"name": "weight"
+						},
+						{
+							"type": "uint256",
+							"name": "discountRate"
+						},
+						{
+							"type": "address",
+							"name": "ballot"
+						},
+						{
+							"type": "uint256",
+							"name": "metadata"
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "directory",
+			"constant": true,
+			"stateMutability": "view",
+			"payable": false,
+			"inputs": [],
+			"outputs": [
+				{
+					"type": "address"
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "get",
+			"constant": true,
+			"stateMutability": "view",
+			"payable": false,
+			"inputs": [
+				{
+					"type": "uint256",
+					"name": "_projectId"
+				},
+				{
+					"type": "uint256",
+					"name": "_configuration"
+				}
+			],
+			"outputs": [
+				{
+					"type": "tuple",
+					"name": "fundingCycle",
+					"components": [
+						{
+							"type": "uint256",
+							"name": "number"
+						},
+						{
+							"type": "uint256",
+							"name": "configuration"
+						},
+						{
+							"type": "uint256",
+							"name": "basedOn"
+						},
+						{
+							"type": "uint256",
+							"name": "start"
+						},
+						{
+							"type": "uint256",
+							"name": "duration"
+						},
+						{
+							"type": "uint256",
+							"name": "weight"
+						},
+						{
+							"type": "uint256",
+							"name": "discountRate"
+						},
+						{
+							"type": "address",
+							"name": "ballot"
+						},
+						{
+							"type": "uint256",
+							"name": "metadata"
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "latestConfigurationOf",
+			"constant": true,
+			"stateMutability": "view",
+			"payable": false,
+			"inputs": [
+				{
+					"type": "uint256"
+				}
+			],
+			"outputs": [
+				{
+					"type": "uint256"
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "latestConfiguredOf",
+			"constant": true,
+			"stateMutability": "view",
+			"payable": false,
+			"inputs": [
+				{
+					"type": "uint256",
+					"name": "_projectId"
+				}
+			],
+			"outputs": [
+				{
+					"type": "tuple",
+					"name": "fundingCycle",
+					"components": [
+						{
+							"type": "uint256",
+							"name": "number"
+						},
+						{
+							"type": "uint256",
+							"name": "configuration"
+						},
+						{
+							"type": "uint256",
+							"name": "basedOn"
+						},
+						{
+							"type": "uint256",
+							"name": "start"
+						},
+						{
+							"type": "uint256",
+							"name": "duration"
+						},
+						{
+							"type": "uint256",
+							"name": "weight"
+						},
+						{
+							"type": "uint256",
+							"name": "discountRate"
+						},
+						{
+							"type": "address",
+							"name": "ballot"
+						},
+						{
+							"type": "uint256",
+							"name": "metadata"
+						}
+					]
+				},
+				{
+					"type": "uint8",
+					"name": "ballotState"
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "queuedOf",
+			"constant": true,
+			"stateMutability": "view",
+			"payable": false,
+			"inputs": [
+				{
+					"type": "uint256",
+					"name": "_projectId"
+				}
+			],
+			"outputs": [
+				{
+					"type": "tuple",
+					"name": "fundingCycle",
+					"components": [
+						{
+							"type": "uint256",
+							"name": "number"
+						},
+						{
+							"type": "uint256",
+							"name": "configuration"
+						},
+						{
+							"type": "uint256",
+							"name": "basedOn"
+						},
+						{
+							"type": "uint256",
+							"name": "start"
+						},
+						{
+							"type": "uint256",
+							"name": "duration"
+						},
+						{
+							"type": "uint256",
+							"name": "weight"
+						},
+						{
+							"type": "uint256",
+							"name": "discountRate"
+						},
+						{
+							"type": "address",
+							"name": "ballot"
+						},
+						{
+							"type": "uint256",
+							"name": "metadata"
+						}
+					]
+				}
+			]
+		}
+	]
+}

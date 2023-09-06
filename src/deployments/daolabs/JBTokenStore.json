@@ -1,0 +1,581 @@
+{
+	"goerli": "0xe3C01473d770711D84Ac0e803743209Ce39a08E0",
+	"abi": [
+		{
+			"type": "constructor",
+			"payable": false,
+			"inputs": [
+				{
+					"type": "address",
+					"name": "_operatorStore"
+				},
+				{
+					"type": "address",
+					"name": "_projects"
+				},
+				{
+					"type": "address",
+					"name": "_directory"
+				},
+				{
+					"type": "address",
+					"name": "_fundingCycleStore"
+				}
+			]
+		},
+		{
+			"type": "error",
+			"name": "ALREADY_SET",
+			"inputs": []
+		},
+		{
+			"type": "error",
+			"name": "CONTROLLER_UNAUTHORIZED",
+			"inputs": []
+		},
+		{
+			"type": "error",
+			"name": "EMPTY_NAME",
+			"inputs": []
+		},
+		{
+			"type": "error",
+			"name": "EMPTY_SYMBOL",
+			"inputs": []
+		},
+		{
+			"type": "error",
+			"name": "EMPTY_TOKEN",
+			"inputs": []
+		},
+		{
+			"type": "error",
+			"name": "INSUFFICIENT_FUNDS",
+			"inputs": []
+		},
+		{
+			"type": "error",
+			"name": "INSUFFICIENT_UNCLAIMED_TOKENS",
+			"inputs": []
+		},
+		{
+			"type": "error",
+			"name": "OVERFLOW_ALERT",
+			"inputs": []
+		},
+		{
+			"type": "error",
+			"name": "PROJECT_ALREADY_HAS_TOKEN",
+			"inputs": []
+		},
+		{
+			"type": "error",
+			"name": "RECIPIENT_ZERO_ADDRESS",
+			"inputs": []
+		},
+		{
+			"type": "error",
+			"name": "TOKENS_MUST_HAVE_18_DECIMALS",
+			"inputs": []
+		},
+		{
+			"type": "error",
+			"name": "TOKEN_NOT_FOUND",
+			"inputs": []
+		},
+		{
+			"type": "error",
+			"name": "TRANSFERS_PAUSED",
+			"inputs": []
+		},
+		{
+			"type": "error",
+			"name": "UNAUTHORIZED",
+			"inputs": []
+		},
+		{
+			"type": "event",
+			"anonymous": false,
+			"name": "Burn",
+			"inputs": [
+				{
+					"type": "address",
+					"name": "holder",
+					"indexed": true
+				},
+				{
+					"type": "uint256",
+					"name": "projectId",
+					"indexed": true
+				},
+				{
+					"type": "uint256",
+					"name": "amount",
+					"indexed": false
+				},
+				{
+					"type": "uint256",
+					"name": "initialUnclaimedBalance",
+					"indexed": false
+				},
+				{
+					"type": "uint256",
+					"name": "initialClaimedBalance",
+					"indexed": false
+				},
+				{
+					"type": "bool",
+					"name": "preferClaimedTokens",
+					"indexed": false
+				},
+				{
+					"type": "address",
+					"name": "caller",
+					"indexed": false
+				}
+			]
+		},
+		{
+			"type": "event",
+			"anonymous": false,
+			"name": "Claim",
+			"inputs": [
+				{
+					"type": "address",
+					"name": "holder",
+					"indexed": true
+				},
+				{
+					"type": "uint256",
+					"name": "projectId",
+					"indexed": true
+				},
+				{
+					"type": "uint256",
+					"name": "initialUnclaimedBalance",
+					"indexed": false
+				},
+				{
+					"type": "uint256",
+					"name": "amount",
+					"indexed": false
+				},
+				{
+					"type": "address",
+					"name": "caller",
+					"indexed": false
+				}
+			]
+		},
+		{
+			"type": "event",
+			"anonymous": false,
+			"name": "Issue",
+			"inputs": [
+				{
+					"type": "uint256",
+					"name": "projectId",
+					"indexed": true
+				},
+				{
+					"type": "address",
+					"name": "token",
+					"indexed": true
+				},
+				{
+					"type": "string",
+					"name": "name",
+					"indexed": false
+				},
+				{
+					"type": "string",
+					"name": "symbol",
+					"indexed": false
+				},
+				{
+					"type": "address",
+					"name": "caller",
+					"indexed": false
+				}
+			]
+		},
+		{
+			"type": "event",
+			"anonymous": false,
+			"name": "Mint",
+			"inputs": [
+				{
+					"type": "address",
+					"name": "holder",
+					"indexed": true
+				},
+				{
+					"type": "uint256",
+					"name": "projectId",
+					"indexed": true
+				},
+				{
+					"type": "uint256",
+					"name": "amount",
+					"indexed": false
+				},
+				{
+					"type": "bool",
+					"name": "tokensWereClaimed",
+					"indexed": false
+				},
+				{
+					"type": "bool",
+					"name": "preferClaimedTokens",
+					"indexed": false
+				},
+				{
+					"type": "address",
+					"name": "caller",
+					"indexed": false
+				}
+			]
+		},
+		{
+			"type": "event",
+			"anonymous": false,
+			"name": "Set",
+			"inputs": [
+				{
+					"type": "uint256",
+					"name": "projectId",
+					"indexed": true
+				},
+				{
+					"type": "address",
+					"name": "newToken",
+					"indexed": true
+				},
+				{
+					"type": "address",
+					"name": "caller",
+					"indexed": false
+				}
+			]
+		},
+		{
+			"type": "event",
+			"anonymous": false,
+			"name": "Transfer",
+			"inputs": [
+				{
+					"type": "address",
+					"name": "holder",
+					"indexed": true
+				},
+				{
+					"type": "uint256",
+					"name": "projectId",
+					"indexed": true
+				},
+				{
+					"type": "address",
+					"name": "recipient",
+					"indexed": true
+				},
+				{
+					"type": "uint256",
+					"name": "amount",
+					"indexed": false
+				},
+				{
+					"type": "address",
+					"name": "caller",
+					"indexed": false
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "balanceOf",
+			"constant": true,
+			"stateMutability": "view",
+			"payable": false,
+			"inputs": [
+				{
+					"type": "address",
+					"name": "_holder"
+				},
+				{
+					"type": "uint256",
+					"name": "_projectId"
+				}
+			],
+			"outputs": [
+				{
+					"type": "uint256",
+					"name": "balance"
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "burnFrom",
+			"constant": false,
+			"payable": false,
+			"inputs": [
+				{
+					"type": "address",
+					"name": "_holder"
+				},
+				{
+					"type": "uint256",
+					"name": "_projectId"
+				},
+				{
+					"type": "uint256",
+					"name": "_amount"
+				},
+				{
+					"type": "bool",
+					"name": "_preferClaimedTokens"
+				}
+			],
+			"outputs": []
+		},
+		{
+			"type": "function",
+			"name": "claimFor",
+			"constant": false,
+			"payable": false,
+			"inputs": [
+				{
+					"type": "address",
+					"name": "_holder"
+				},
+				{
+					"type": "uint256",
+					"name": "_projectId"
+				},
+				{
+					"type": "uint256",
+					"name": "_amount"
+				}
+			],
+			"outputs": []
+		},
+		{
+			"type": "function",
+			"name": "directory",
+			"constant": true,
+			"stateMutability": "view",
+			"payable": false,
+			"inputs": [],
+			"outputs": [
+				{
+					"type": "address"
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "fundingCycleStore",
+			"constant": true,
+			"stateMutability": "view",
+			"payable": false,
+			"inputs": [],
+			"outputs": [
+				{
+					"type": "address"
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "issueFor",
+			"constant": false,
+			"payable": false,
+			"inputs": [
+				{
+					"type": "uint256",
+					"name": "_projectId"
+				},
+				{
+					"type": "string",
+					"name": "_name"
+				},
+				{
+					"type": "string",
+					"name": "_symbol"
+				}
+			],
+			"outputs": [
+				{
+					"type": "address",
+					"name": "token"
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "mintFor",
+			"constant": false,
+			"payable": false,
+			"inputs": [
+				{
+					"type": "address",
+					"name": "_holder"
+				},
+				{
+					"type": "uint256",
+					"name": "_projectId"
+				},
+				{
+					"type": "uint256",
+					"name": "_amount"
+				},
+				{
+					"type": "bool",
+					"name": "_preferClaimedTokens"
+				}
+			],
+			"outputs": []
+		},
+		{
+			"type": "function",
+			"name": "operatorStore",
+			"constant": true,
+			"stateMutability": "view",
+			"payable": false,
+			"inputs": [],
+			"outputs": [
+				{
+					"type": "address"
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "projects",
+			"constant": true,
+			"stateMutability": "view",
+			"payable": false,
+			"inputs": [],
+			"outputs": [
+				{
+					"type": "address"
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "setFor",
+			"constant": false,
+			"payable": false,
+			"inputs": [
+				{
+					"type": "uint256",
+					"name": "_projectId"
+				},
+				{
+					"type": "address",
+					"name": "_token"
+				}
+			],
+			"outputs": []
+		},
+		{
+			"type": "function",
+			"name": "tokenOf",
+			"constant": true,
+			"stateMutability": "view",
+			"payable": false,
+			"inputs": [
+				{
+					"type": "uint256"
+				}
+			],
+			"outputs": [
+				{
+					"type": "address"
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "totalSupplyOf",
+			"constant": true,
+			"stateMutability": "view",
+			"payable": false,
+			"inputs": [
+				{
+					"type": "uint256",
+					"name": "_projectId"
+				}
+			],
+			"outputs": [
+				{
+					"type": "uint256",
+					"name": "totalSupply"
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "transferFrom",
+			"constant": false,
+			"payable": false,
+			"inputs": [
+				{
+					"type": "address",
+					"name": "_holder"
+				},
+				{
+					"type": "uint256",
+					"name": "_projectId"
+				},
+				{
+					"type": "address",
+					"name": "_recipient"
+				},
+				{
+					"type": "uint256",
+					"name": "_amount"
+				}
+			],
+			"outputs": []
+		},
+		{
+			"type": "function",
+			"name": "unclaimedBalanceOf",
+			"constant": true,
+			"stateMutability": "view",
+			"payable": false,
+			"inputs": [
+				{
+					"type": "address"
+				},
+				{
+					"type": "uint256"
+				}
+			],
+			"outputs": [
+				{
+					"type": "uint256"
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "unclaimedTotalSupplyOf",
+			"constant": true,
+			"stateMutability": "view",
+			"payable": false,
+			"inputs": [
+				{
+					"type": "uint256"
+				}
+			],
+			"outputs": [
+				{
+					"type": "uint256"
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,64 @@
+[
+	{
+		"name": "Date",
+		"type": "date",
+		"label": "Last Updated Date",
+		"value": "2023-01-01"
+	},
+	{
+		"name": "Entity-name",
+		"type": "text",
+		"label": "Your Entity's Name",
+		"placeholder": "ACME DAO",
+		"value": "ACME DAO"
+	},
+	{
+		"name": "Entity-city",
+		"type": "text",
+		"label": "Entity's City",
+		"placeholder": "Miami",
+		"value": "Miami"
+	},
+	{
+		"name": "Entity-state",
+		"type": "text",
+		"label": "Entity's State",
+		"placeholder": "Florida",
+		"value": "Florida"
+	},
+	{
+		"name": "Entity-urls",
+		"type": "text",
+		"label": "Entity's Service URLs",
+		"placeholder": "https://acme.xyz/; https://discord.gg/acme; https://twitter.com/acme; etc.",
+		"value": "https://acme.xyz/; https://discord.gg/acme; https://twitter.com/acme; etc."
+	},
+	{
+		"name": "Entity-contact-url",
+		"type": "text",
+		"label": "Entity Contact URL (Discord, Telegram, Twitter, etc.)",
+		"placeholder": "https://discord.gg/acme",
+		"value": "https://discord.gg/acme"
+	},
+	{
+		"name": "Entity-email",
+		"type": "text",
+		"label": "Entity Notice Email Address",
+		"placeholder": "acme@ethereum.email",
+		"value": "acme@ethereum.email"
+	},
+	{
+		"name": "Service-provider-name",
+		"type": "text",
+		"label": "Service Provider Name",
+		"placeholder": "i.e. Mrs. Jane Doe Esq. or Service Provider R US, LLC or service-provider.eth",
+		"value": "Service Provider R US"
+	},
+	{
+		"name": "Service-provider-email",
+		"type": "text",
+		"label": "Service Provider Email Address",
+		"placeholder": "no-response@service-provider.xyz",
+		"value": "no-response@service-provider.xyz"
+	}
+]

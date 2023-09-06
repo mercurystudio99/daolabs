@@ -1,0 +1,543 @@
+{
+	"mainnet": "",
+	"goerli": "",
+	"abi": [
+		{
+			"inputs": [
+				{ "internalType": "uint256", "name": "projectId", "type": "uint256" },
+				{ "internalType": "contract IJBDirectory", "name": "directory", "type": "address" },
+				{ "internalType": "uint256", "name": "maxSupply", "type": "uint256" },
+				{
+					"components": [
+						{ "internalType": "address", "name": "token", "type": "address" },
+						{ "internalType": "uint256", "name": "value", "type": "uint256" },
+						{ "internalType": "uint256", "name": "decimals", "type": "uint256" },
+						{ "internalType": "uint256", "name": "currency", "type": "uint256" }
+					],
+					"internalType": "struct JBTokenAmount",
+					"name": "minContribution",
+					"type": "tuple"
+				},
+				{ "internalType": "string", "name": "_name", "type": "string" },
+				{ "internalType": "string", "name": "_symbol", "type": "string" },
+				{ "internalType": "string", "name": "_uri", "type": "string" },
+				{
+					"internalType": "contract IToken721UriResolver",
+					"name": "_tokenUriResolverAddress",
+					"type": "address"
+				},
+				{ "internalType": "string", "name": "_contractMetadataUri", "type": "string" },
+				{ "internalType": "address", "name": "_admin", "type": "address" },
+				{ "internalType": "contract IPriceResolver", "name": "_priceResolver", "type": "address" }
+			],
+			"stateMutability": "nonpayable",
+			"type": "constructor"
+		},
+		{ "inputs": [], "name": "INCORRECT_OWNER", "type": "error" },
+		{ "inputs": [], "name": "INVALID_ADDRESS", "type": "error" },
+		{ "inputs": [], "name": "INVALID_PAYMENT_EVENT", "type": "error" },
+		{
+			"inputs": [{ "internalType": "string", "name": "", "type": "string" }],
+			"name": "INVALID_REQUEST",
+			"type": "error"
+		},
+		{ "inputs": [], "name": "INVALID_TOKEN", "type": "error" },
+		{ "inputs": [], "name": "NON_TRANSFERRABLE", "type": "error" },
+		{ "inputs": [], "name": "SUPPLY_EXHAUSTED", "type": "error" },
+		{
+			"anonymous": false,
+			"inputs": [
+				{ "indexed": true, "internalType": "address", "name": "owner", "type": "address" },
+				{ "indexed": true, "internalType": "address", "name": "spender", "type": "address" },
+				{ "indexed": true, "internalType": "uint256", "name": "id", "type": "uint256" }
+			],
+			"name": "Approval",
+			"type": "event"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{ "indexed": true, "internalType": "address", "name": "owner", "type": "address" },
+				{ "indexed": true, "internalType": "address", "name": "operator", "type": "address" },
+				{ "indexed": false, "internalType": "bool", "name": "approved", "type": "bool" }
+			],
+			"name": "ApprovalForAll",
+			"type": "event"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{ "indexed": true, "internalType": "address", "name": "previousOwner", "type": "address" },
+				{ "indexed": true, "internalType": "address", "name": "newOwner", "type": "address" }
+			],
+			"name": "OwnershipTransferred",
+			"type": "event"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{ "indexed": true, "internalType": "address", "name": "from", "type": "address" },
+				{ "indexed": true, "internalType": "address", "name": "to", "type": "address" },
+				{ "indexed": true, "internalType": "uint256", "name": "id", "type": "uint256" }
+			],
+			"name": "Transfer",
+			"type": "event"
+		},
+		{
+			"inputs": [
+				{ "internalType": "address", "name": "spender", "type": "address" },
+				{ "internalType": "uint256", "name": "id", "type": "uint256" }
+			],
+			"name": "approve",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [{ "internalType": "address", "name": "owner", "type": "address" }],
+			"name": "balanceOf",
+			"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{ "internalType": "address", "name": "_account", "type": "address" },
+				{ "internalType": "uint256", "name": "_tokenId", "type": "uint256" }
+			],
+			"name": "burn",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "contractURI",
+			"outputs": [{ "internalType": "string", "name": "contractUri", "type": "string" }],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"components": [
+						{ "internalType": "address", "name": "payer", "type": "address" },
+						{ "internalType": "uint256", "name": "projectId", "type": "uint256" },
+						{
+							"internalType": "uint256",
+							"name": "currentFundingCycleConfiguration",
+							"type": "uint256"
+						},
+						{
+							"components": [
+								{ "internalType": "address", "name": "token", "type": "address" },
+								{ "internalType": "uint256", "name": "value", "type": "uint256" },
+								{ "internalType": "uint256", "name": "decimals", "type": "uint256" },
+								{ "internalType": "uint256", "name": "currency", "type": "uint256" }
+							],
+							"internalType": "struct JBTokenAmount",
+							"name": "amount",
+							"type": "tuple"
+						},
+						{
+							"components": [
+								{ "internalType": "address", "name": "token", "type": "address" },
+								{ "internalType": "uint256", "name": "value", "type": "uint256" },
+								{ "internalType": "uint256", "name": "decimals", "type": "uint256" },
+								{ "internalType": "uint256", "name": "currency", "type": "uint256" }
+							],
+							"internalType": "struct JBTokenAmount",
+							"name": "forwardedAmount",
+							"type": "tuple"
+						},
+						{ "internalType": "uint256", "name": "projectTokenCount", "type": "uint256" },
+						{ "internalType": "address", "name": "beneficiary", "type": "address" },
+						{ "internalType": "bool", "name": "preferClaimedTokens", "type": "bool" },
+						{ "internalType": "string", "name": "memo", "type": "string" },
+						{ "internalType": "bytes", "name": "metadata", "type": "bytes" }
+					],
+					"internalType": "struct JBDidPayData",
+					"name": "_data",
+					"type": "tuple"
+				}
+			],
+			"name": "didPay",
+			"outputs": [],
+			"stateMutability": "payable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"components": [
+						{ "internalType": "address", "name": "holder", "type": "address" },
+						{ "internalType": "uint256", "name": "projectId", "type": "uint256" },
+						{
+							"internalType": "uint256",
+							"name": "currentFundingCycleConfiguration",
+							"type": "uint256"
+						},
+						{ "internalType": "uint256", "name": "projectTokenCount", "type": "uint256" },
+						{
+							"components": [
+								{ "internalType": "address", "name": "token", "type": "address" },
+								{ "internalType": "uint256", "name": "value", "type": "uint256" },
+								{ "internalType": "uint256", "name": "decimals", "type": "uint256" },
+								{ "internalType": "uint256", "name": "currency", "type": "uint256" }
+							],
+							"internalType": "struct JBTokenAmount",
+							"name": "reclaimedAmount",
+							"type": "tuple"
+						},
+						{
+							"components": [
+								{ "internalType": "address", "name": "token", "type": "address" },
+								{ "internalType": "uint256", "name": "value", "type": "uint256" },
+								{ "internalType": "uint256", "name": "decimals", "type": "uint256" },
+								{ "internalType": "uint256", "name": "currency", "type": "uint256" }
+							],
+							"internalType": "struct JBTokenAmount",
+							"name": "forwardedAmount",
+							"type": "tuple"
+						},
+						{ "internalType": "address payable", "name": "beneficiary", "type": "address" },
+						{ "internalType": "string", "name": "memo", "type": "string" },
+						{ "internalType": "bytes", "name": "metadata", "type": "bytes" }
+					],
+					"internalType": "struct JBDidRedeemData",
+					"name": "_data",
+					"type": "tuple"
+				}
+			],
+			"name": "didRedeem",
+			"outputs": [],
+			"stateMutability": "payable",
+			"type": "function"
+		},
+		{
+			"inputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+			"name": "getApproved",
+			"outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{ "internalType": "address", "name": "", "type": "address" },
+				{ "internalType": "address", "name": "", "type": "address" }
+			],
+			"name": "isApprovedForAll",
+			"outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{ "internalType": "address", "name": "_account", "type": "address" },
+				{ "internalType": "uint256", "name": "_id", "type": "uint256" }
+			],
+			"name": "isOwner",
+			"outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [{ "internalType": "address", "name": "_account", "type": "address" }],
+			"name": "mint",
+			"outputs": [{ "internalType": "uint256", "name": "tokenId", "type": "uint256" }],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "name",
+			"outputs": [{ "internalType": "string", "name": "", "type": "string" }],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "owner",
+			"outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [{ "internalType": "uint256", "name": "id", "type": "uint256" }],
+			"name": "ownerOf",
+			"outputs": [{ "internalType": "address", "name": "owner", "type": "address" }],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{ "internalType": "address", "name": "_account", "type": "address" },
+				{ "internalType": "uint256", "name": "_tokenId", "type": "uint256" }
+			],
+			"name": "ownerTokenBalance",
+			"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"components": [
+						{
+							"internalType": "contract IJBPaymentTerminal",
+							"name": "terminal",
+							"type": "address"
+						},
+						{ "internalType": "address", "name": "payer", "type": "address" },
+						{
+							"components": [
+								{ "internalType": "address", "name": "token", "type": "address" },
+								{ "internalType": "uint256", "name": "value", "type": "uint256" },
+								{ "internalType": "uint256", "name": "decimals", "type": "uint256" },
+								{ "internalType": "uint256", "name": "currency", "type": "uint256" }
+							],
+							"internalType": "struct JBTokenAmount",
+							"name": "amount",
+							"type": "tuple"
+						},
+						{ "internalType": "uint256", "name": "projectId", "type": "uint256" },
+						{
+							"internalType": "uint256",
+							"name": "currentFundingCycleConfiguration",
+							"type": "uint256"
+						},
+						{ "internalType": "address", "name": "beneficiary", "type": "address" },
+						{ "internalType": "uint256", "name": "weight", "type": "uint256" },
+						{ "internalType": "uint256", "name": "reservedRate", "type": "uint256" },
+						{ "internalType": "string", "name": "memo", "type": "string" },
+						{ "internalType": "bytes", "name": "metadata", "type": "bytes" }
+					],
+					"internalType": "struct JBPayParamsData",
+					"name": "_data",
+					"type": "tuple"
+				}
+			],
+			"name": "payParams",
+			"outputs": [
+				{ "internalType": "uint256", "name": "weight", "type": "uint256" },
+				{ "internalType": "string", "name": "memo", "type": "string" },
+				{
+					"components": [
+						{ "internalType": "contract IJBPayDelegate", "name": "delegate", "type": "address" },
+						{ "internalType": "uint256", "name": "amount", "type": "uint256" }
+					],
+					"internalType": "struct JBPayDelegateAllocation[]",
+					"name": "delegateAllocations",
+					"type": "tuple[]"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"components": [
+						{
+							"internalType": "contract IJBPaymentTerminal",
+							"name": "terminal",
+							"type": "address"
+						},
+						{ "internalType": "address", "name": "holder", "type": "address" },
+						{ "internalType": "uint256", "name": "projectId", "type": "uint256" },
+						{
+							"internalType": "uint256",
+							"name": "currentFundingCycleConfiguration",
+							"type": "uint256"
+						},
+						{ "internalType": "uint256", "name": "tokenCount", "type": "uint256" },
+						{ "internalType": "uint256", "name": "totalSupply", "type": "uint256" },
+						{ "internalType": "uint256", "name": "overflow", "type": "uint256" },
+						{
+							"components": [
+								{ "internalType": "address", "name": "token", "type": "address" },
+								{ "internalType": "uint256", "name": "value", "type": "uint256" },
+								{ "internalType": "uint256", "name": "decimals", "type": "uint256" },
+								{ "internalType": "uint256", "name": "currency", "type": "uint256" }
+							],
+							"internalType": "struct JBTokenAmount",
+							"name": "reclaimAmount",
+							"type": "tuple"
+						},
+						{ "internalType": "bool", "name": "useTotalOverflow", "type": "bool" },
+						{ "internalType": "uint256", "name": "redemptionRate", "type": "uint256" },
+						{ "internalType": "string", "name": "memo", "type": "string" },
+						{ "internalType": "bytes", "name": "metadata", "type": "bytes" }
+					],
+					"internalType": "struct JBRedeemParamsData",
+					"name": "_data",
+					"type": "tuple"
+				}
+			],
+			"name": "redeemParams",
+			"outputs": [
+				{ "internalType": "uint256", "name": "reclaimAmount", "type": "uint256" },
+				{ "internalType": "string", "name": "memo", "type": "string" },
+				{
+					"components": [
+						{
+							"internalType": "contract IJBRedemptionDelegate",
+							"name": "delegate",
+							"type": "address"
+						},
+						{ "internalType": "uint256", "name": "amount", "type": "uint256" }
+					],
+					"internalType": "struct JBRedemptionDelegateAllocation[]",
+					"name": "delegateAllocations",
+					"type": "tuple[]"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "renounceOwnership",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{ "internalType": "address", "name": "from", "type": "address" },
+				{ "internalType": "address", "name": "to", "type": "address" },
+				{ "internalType": "uint256", "name": "id", "type": "uint256" }
+			],
+			"name": "safeTransferFrom",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{ "internalType": "address", "name": "from", "type": "address" },
+				{ "internalType": "address", "name": "to", "type": "address" },
+				{ "internalType": "uint256", "name": "id", "type": "uint256" },
+				{ "internalType": "bytes", "name": "data", "type": "bytes" }
+			],
+			"name": "safeTransferFrom",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{ "internalType": "address", "name": "operator", "type": "address" },
+				{ "internalType": "bool", "name": "approved", "type": "bool" }
+			],
+			"name": "setApprovalForAll",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [{ "internalType": "string", "name": "_contractMetadataUri", "type": "string" }],
+			"name": "setContractUri",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [{ "internalType": "string", "name": "_uri", "type": "string" }],
+			"name": "setTokenUri",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "contract IToken721UriResolver",
+					"name": "_tokenUriResolverAddress",
+					"type": "address"
+				}
+			],
+			"name": "setTokenUriResolver",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [{ "internalType": "bool", "name": "_transferrable", "type": "bool" }],
+			"name": "setTransferrable",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [{ "internalType": "bytes4", "name": "_interfaceId", "type": "bytes4" }],
+			"name": "supportsInterface",
+			"outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "symbol",
+			"outputs": [{ "internalType": "string", "name": "", "type": "string" }],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [{ "internalType": "uint256", "name": "_tokenId", "type": "uint256" }],
+			"name": "tokenSupply",
+			"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [{ "internalType": "uint256", "name": "tokenId", "type": "uint256" }],
+			"name": "tokenURI",
+			"outputs": [{ "internalType": "string", "name": "", "type": "string" }],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [{ "internalType": "address", "name": "_account", "type": "address" }],
+			"name": "totalOwnerBalance",
+			"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "totalSupply",
+			"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{ "internalType": "address", "name": "_to", "type": "address" },
+				{ "internalType": "uint256", "name": "_id", "type": "uint256" }
+			],
+			"name": "transfer",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{ "internalType": "address", "name": "_from", "type": "address" },
+				{ "internalType": "address", "name": "_to", "type": "address" },
+				{ "internalType": "uint256", "name": "_id", "type": "uint256" }
+			],
+			"name": "transferFrom",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [{ "internalType": "address", "name": "newOwner", "type": "address" }],
+			"name": "transferOwnership",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		}
+	]
+}

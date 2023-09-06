@@ -1,0 +1,2101 @@
+{
+	"goerli": "0x28cb92005ef21DaE1D5B9bA244ABb6B1DFdfD695",
+	"abi": [
+		{
+			"type": "constructor",
+			"payable": false,
+			"inputs": [
+				{
+					"type": "address",
+					"name": "_operatorStore"
+				},
+				{
+					"type": "address",
+					"name": "_projects"
+				},
+				{
+					"type": "address",
+					"name": "_directory"
+				},
+				{
+					"type": "address",
+					"name": "_fundingCycleStore"
+				},
+				{
+					"type": "address",
+					"name": "_tokenStore"
+				},
+				{
+					"type": "address",
+					"name": "_splitsStore"
+				}
+			]
+		},
+		{
+			"type": "error",
+			"name": "BURN_PAUSED_AND_SENDER_NOT_VALID_TERMINAL_DELEGATE",
+			"inputs": []
+		},
+		{
+			"type": "error",
+			"name": "CANT_MIGRATE_TO_CURRENT_CONTROLLER",
+			"inputs": []
+		},
+		{
+			"type": "error",
+			"name": "FUNDING_CYCLE_ALREADY_LAUNCHED",
+			"inputs": []
+		},
+		{
+			"type": "error",
+			"name": "INVALID_BALLOT_REDEMPTION_RATE",
+			"inputs": []
+		},
+		{
+			"type": "error",
+			"name": "INVALID_DISTRIBUTION_LIMIT",
+			"inputs": []
+		},
+		{
+			"type": "error",
+			"name": "INVALID_DISTRIBUTION_LIMIT_CURRENCY",
+			"inputs": []
+		},
+		{
+			"type": "error",
+			"name": "INVALID_OVERFLOW_ALLOWANCE",
+			"inputs": []
+		},
+		{
+			"type": "error",
+			"name": "INVALID_OVERFLOW_ALLOWANCE_CURRENCY",
+			"inputs": []
+		},
+		{
+			"type": "error",
+			"name": "INVALID_REDEMPTION_RATE",
+			"inputs": []
+		},
+		{
+			"type": "error",
+			"name": "INVALID_RESERVED_RATE",
+			"inputs": []
+		},
+		{
+			"type": "error",
+			"name": "MIGRATION_NOT_ALLOWED",
+			"inputs": []
+		},
+		{
+			"type": "error",
+			"name": "MINT_NOT_ALLOWED_AND_NOT_TERMINAL_DELEGATE",
+			"inputs": []
+		},
+		{
+			"type": "error",
+			"name": "NOT_CURRENT_CONTROLLER",
+			"inputs": []
+		},
+		{
+			"type": "error",
+			"name": "NO_BURNABLE_TOKENS",
+			"inputs": []
+		},
+		{
+			"type": "error",
+			"name": "OVERFLOW_ALERT",
+			"inputs": []
+		},
+		{
+			"type": "error",
+			"name": "PRBMath__MulDivOverflow",
+			"inputs": [
+				{
+					"type": "uint256",
+					"name": "prod1"
+				},
+				{
+					"type": "uint256",
+					"name": "denominator"
+				}
+			]
+		},
+		{
+			"type": "error",
+			"name": "UNAUTHORIZED",
+			"inputs": []
+		},
+		{
+			"type": "error",
+			"name": "ZERO_TOKENS_TO_MINT",
+			"inputs": []
+		},
+		{
+			"type": "event",
+			"anonymous": false,
+			"name": "BurnTokens",
+			"inputs": [
+				{
+					"type": "address",
+					"name": "holder",
+					"indexed": true
+				},
+				{
+					"type": "uint256",
+					"name": "projectId",
+					"indexed": true
+				},
+				{
+					"type": "uint256",
+					"name": "tokenCount",
+					"indexed": false
+				},
+				{
+					"type": "string",
+					"name": "memo",
+					"indexed": false
+				},
+				{
+					"type": "address",
+					"name": "caller",
+					"indexed": false
+				}
+			]
+		},
+		{
+			"type": "event",
+			"anonymous": false,
+			"name": "DistributeReservedTokens",
+			"inputs": [
+				{
+					"type": "uint256",
+					"name": "fundingCycleConfiguration",
+					"indexed": true
+				},
+				{
+					"type": "uint256",
+					"name": "fundingCycleNumber",
+					"indexed": true
+				},
+				{
+					"type": "uint256",
+					"name": "projectId",
+					"indexed": true
+				},
+				{
+					"type": "address",
+					"name": "beneficiary",
+					"indexed": false
+				},
+				{
+					"type": "uint256",
+					"name": "tokenCount",
+					"indexed": false
+				},
+				{
+					"type": "uint256",
+					"name": "beneficiaryTokenCount",
+					"indexed": false
+				},
+				{
+					"type": "string",
+					"name": "memo",
+					"indexed": false
+				},
+				{
+					"type": "address",
+					"name": "caller",
+					"indexed": false
+				}
+			]
+		},
+		{
+			"type": "event",
+			"anonymous": false,
+			"name": "DistributeToReservedTokenSplit",
+			"inputs": [
+				{
+					"type": "uint256",
+					"name": "projectId",
+					"indexed": true
+				},
+				{
+					"type": "uint256",
+					"name": "domain",
+					"indexed": true
+				},
+				{
+					"type": "uint256",
+					"name": "group",
+					"indexed": true
+				},
+				{
+					"type": "tuple",
+					"name": "split",
+					"indexed": false,
+					"components": [
+						{
+							"type": "bool",
+							"name": "preferClaimed"
+						},
+						{
+							"type": "bool",
+							"name": "preferAddToBalance"
+						},
+						{
+							"type": "uint256",
+							"name": "percent"
+						},
+						{
+							"type": "uint256",
+							"name": "projectId"
+						},
+						{
+							"type": "address",
+							"name": "beneficiary"
+						},
+						{
+							"type": "uint256",
+							"name": "lockedUntil"
+						},
+						{
+							"type": "address",
+							"name": "allocator"
+						}
+					]
+				},
+				{
+					"type": "uint256",
+					"name": "tokenCount",
+					"indexed": false
+				},
+				{
+					"type": "address",
+					"name": "caller",
+					"indexed": false
+				}
+			]
+		},
+		{
+			"type": "event",
+			"anonymous": false,
+			"name": "LaunchFundingCycles",
+			"inputs": [
+				{
+					"type": "uint256",
+					"name": "configuration",
+					"indexed": false
+				},
+				{
+					"type": "uint256",
+					"name": "projectId",
+					"indexed": false
+				},
+				{
+					"type": "string",
+					"name": "memo",
+					"indexed": false
+				},
+				{
+					"type": "address",
+					"name": "caller",
+					"indexed": false
+				}
+			]
+		},
+		{
+			"type": "event",
+			"anonymous": false,
+			"name": "LaunchProject",
+			"inputs": [
+				{
+					"type": "uint256",
+					"name": "configuration",
+					"indexed": false
+				},
+				{
+					"type": "uint256",
+					"name": "projectId",
+					"indexed": false
+				},
+				{
+					"type": "string",
+					"name": "memo",
+					"indexed": false
+				},
+				{
+					"type": "address",
+					"name": "caller",
+					"indexed": false
+				}
+			]
+		},
+		{
+			"type": "event",
+			"anonymous": false,
+			"name": "Migrate",
+			"inputs": [
+				{
+					"type": "uint256",
+					"name": "projectId",
+					"indexed": true
+				},
+				{
+					"type": "address",
+					"name": "to",
+					"indexed": false
+				},
+				{
+					"type": "address",
+					"name": "caller",
+					"indexed": false
+				}
+			]
+		},
+		{
+			"type": "event",
+			"anonymous": false,
+			"name": "MintTokens",
+			"inputs": [
+				{
+					"type": "address",
+					"name": "beneficiary",
+					"indexed": true
+				},
+				{
+					"type": "uint256",
+					"name": "projectId",
+					"indexed": true
+				},
+				{
+					"type": "uint256",
+					"name": "tokenCount",
+					"indexed": false
+				},
+				{
+					"type": "uint256",
+					"name": "beneficiaryTokenCount",
+					"indexed": false
+				},
+				{
+					"type": "string",
+					"name": "memo",
+					"indexed": false
+				},
+				{
+					"type": "uint256",
+					"name": "reservedRate",
+					"indexed": false
+				},
+				{
+					"type": "address",
+					"name": "caller",
+					"indexed": false
+				}
+			]
+		},
+		{
+			"type": "event",
+			"anonymous": false,
+			"name": "PrepMigration",
+			"inputs": [
+				{
+					"type": "uint256",
+					"name": "projectId",
+					"indexed": true
+				},
+				{
+					"type": "address",
+					"name": "from",
+					"indexed": false
+				},
+				{
+					"type": "address",
+					"name": "caller",
+					"indexed": false
+				}
+			]
+		},
+		{
+			"type": "event",
+			"anonymous": false,
+			"name": "ReconfigureFundingCycles",
+			"inputs": [
+				{
+					"type": "uint256",
+					"name": "configuration",
+					"indexed": false
+				},
+				{
+					"type": "uint256",
+					"name": "projectId",
+					"indexed": false
+				},
+				{
+					"type": "string",
+					"name": "memo",
+					"indexed": false
+				},
+				{
+					"type": "address",
+					"name": "caller",
+					"indexed": false
+				}
+			]
+		},
+		{
+			"type": "event",
+			"anonymous": false,
+			"name": "SetFundAccessConstraints",
+			"inputs": [
+				{
+					"type": "uint256",
+					"name": "fundingCycleConfiguration",
+					"indexed": true
+				},
+				{
+					"type": "uint256",
+					"name": "fundingCycleNumber",
+					"indexed": true
+				},
+				{
+					"type": "uint256",
+					"name": "projectId",
+					"indexed": true
+				},
+				{
+					"type": "tuple",
+					"name": "constraints",
+					"indexed": false,
+					"components": [
+						{
+							"type": "address",
+							"name": "terminal"
+						},
+						{
+							"type": "address",
+							"name": "token"
+						},
+						{
+							"type": "uint256",
+							"name": "distributionLimit"
+						},
+						{
+							"type": "uint256",
+							"name": "distributionLimitCurrency"
+						},
+						{
+							"type": "uint256",
+							"name": "overflowAllowance"
+						},
+						{
+							"type": "uint256",
+							"name": "overflowAllowanceCurrency"
+						}
+					]
+				},
+				{
+					"type": "address",
+					"name": "caller",
+					"indexed": false
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "burnTokensOf",
+			"constant": false,
+			"payable": false,
+			"inputs": [
+				{
+					"type": "address",
+					"name": "_holder"
+				},
+				{
+					"type": "uint256",
+					"name": "_projectId"
+				},
+				{
+					"type": "uint256",
+					"name": "_tokenCount"
+				},
+				{
+					"type": "string",
+					"name": "_memo"
+				},
+				{
+					"type": "bool",
+					"name": "_preferClaimedTokens"
+				}
+			],
+			"outputs": []
+		},
+		{
+			"type": "function",
+			"name": "currentFundingCycleOf",
+			"constant": true,
+			"stateMutability": "view",
+			"payable": false,
+			"inputs": [
+				{
+					"type": "uint256",
+					"name": "_projectId"
+				}
+			],
+			"outputs": [
+				{
+					"type": "tuple",
+					"name": "fundingCycle",
+					"components": [
+						{
+							"type": "uint256",
+							"name": "number"
+						},
+						{
+							"type": "uint256",
+							"name": "configuration"
+						},
+						{
+							"type": "uint256",
+							"name": "basedOn"
+						},
+						{
+							"type": "uint256",
+							"name": "start"
+						},
+						{
+							"type": "uint256",
+							"name": "duration"
+						},
+						{
+							"type": "uint256",
+							"name": "weight"
+						},
+						{
+							"type": "uint256",
+							"name": "discountRate"
+						},
+						{
+							"type": "address",
+							"name": "ballot"
+						},
+						{
+							"type": "uint256",
+							"name": "metadata"
+						}
+					]
+				},
+				{
+					"type": "tuple",
+					"name": "metadata",
+					"components": [
+						{
+							"type": "tuple",
+							"name": "global",
+							"components": [
+								{
+									"type": "bool",
+									"name": "allowSetTerminals"
+								},
+								{
+									"type": "bool",
+									"name": "allowSetController"
+								},
+								{
+									"type": "bool",
+									"name": "pauseTransfers"
+								}
+							]
+						},
+						{
+							"type": "uint256",
+							"name": "reservedRate"
+						},
+						{
+							"type": "uint256",
+							"name": "redemptionRate"
+						},
+						{
+							"type": "uint256",
+							"name": "ballotRedemptionRate"
+						},
+						{
+							"type": "bool",
+							"name": "pausePay"
+						},
+						{
+							"type": "bool",
+							"name": "pauseDistributions"
+						},
+						{
+							"type": "bool",
+							"name": "pauseRedeem"
+						},
+						{
+							"type": "bool",
+							"name": "pauseBurn"
+						},
+						{
+							"type": "bool",
+							"name": "allowMinting"
+						},
+						{
+							"type": "bool",
+							"name": "allowTerminalMigration"
+						},
+						{
+							"type": "bool",
+							"name": "allowControllerMigration"
+						},
+						{
+							"type": "bool",
+							"name": "holdFees"
+						},
+						{
+							"type": "bool",
+							"name": "preferClaimedTokenOverride"
+						},
+						{
+							"type": "bool",
+							"name": "useTotalOverflowForRedemptions"
+						},
+						{
+							"type": "bool",
+							"name": "useDataSourceForPay"
+						},
+						{
+							"type": "bool",
+							"name": "useDataSourceForRedeem"
+						},
+						{
+							"type": "address",
+							"name": "dataSource"
+						},
+						{
+							"type": "uint256",
+							"name": "metadata"
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "directory",
+			"constant": true,
+			"stateMutability": "view",
+			"payable": false,
+			"inputs": [],
+			"outputs": [
+				{
+					"type": "address"
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "distributeReservedTokensOf",
+			"constant": false,
+			"payable": false,
+			"inputs": [
+				{
+					"type": "uint256",
+					"name": "_projectId"
+				},
+				{
+					"type": "string",
+					"name": "_memo"
+				}
+			],
+			"outputs": [
+				{
+					"type": "uint256"
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "distributionLimitOf",
+			"constant": true,
+			"stateMutability": "view",
+			"payable": false,
+			"inputs": [
+				{
+					"type": "uint256",
+					"name": "_projectId"
+				},
+				{
+					"type": "uint256",
+					"name": "_configuration"
+				},
+				{
+					"type": "address",
+					"name": "_terminal"
+				},
+				{
+					"type": "address",
+					"name": "_token"
+				}
+			],
+			"outputs": [
+				{
+					"type": "uint256"
+				},
+				{
+					"type": "uint256"
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "fundingCycleStore",
+			"constant": true,
+			"stateMutability": "view",
+			"payable": false,
+			"inputs": [],
+			"outputs": [
+				{
+					"type": "address"
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "getFundingCycleOf",
+			"constant": true,
+			"stateMutability": "view",
+			"payable": false,
+			"inputs": [
+				{
+					"type": "uint256",
+					"name": "_projectId"
+				},
+				{
+					"type": "uint256",
+					"name": "_configuration"
+				}
+			],
+			"outputs": [
+				{
+					"type": "tuple",
+					"name": "fundingCycle",
+					"components": [
+						{
+							"type": "uint256",
+							"name": "number"
+						},
+						{
+							"type": "uint256",
+							"name": "configuration"
+						},
+						{
+							"type": "uint256",
+							"name": "basedOn"
+						},
+						{
+							"type": "uint256",
+							"name": "start"
+						},
+						{
+							"type": "uint256",
+							"name": "duration"
+						},
+						{
+							"type": "uint256",
+							"name": "weight"
+						},
+						{
+							"type": "uint256",
+							"name": "discountRate"
+						},
+						{
+							"type": "address",
+							"name": "ballot"
+						},
+						{
+							"type": "uint256",
+							"name": "metadata"
+						}
+					]
+				},
+				{
+					"type": "tuple",
+					"name": "metadata",
+					"components": [
+						{
+							"type": "tuple",
+							"name": "global",
+							"components": [
+								{
+									"type": "bool",
+									"name": "allowSetTerminals"
+								},
+								{
+									"type": "bool",
+									"name": "allowSetController"
+								},
+								{
+									"type": "bool",
+									"name": "pauseTransfers"
+								}
+							]
+						},
+						{
+							"type": "uint256",
+							"name": "reservedRate"
+						},
+						{
+							"type": "uint256",
+							"name": "redemptionRate"
+						},
+						{
+							"type": "uint256",
+							"name": "ballotRedemptionRate"
+						},
+						{
+							"type": "bool",
+							"name": "pausePay"
+						},
+						{
+							"type": "bool",
+							"name": "pauseDistributions"
+						},
+						{
+							"type": "bool",
+							"name": "pauseRedeem"
+						},
+						{
+							"type": "bool",
+							"name": "pauseBurn"
+						},
+						{
+							"type": "bool",
+							"name": "allowMinting"
+						},
+						{
+							"type": "bool",
+							"name": "allowTerminalMigration"
+						},
+						{
+							"type": "bool",
+							"name": "allowControllerMigration"
+						},
+						{
+							"type": "bool",
+							"name": "holdFees"
+						},
+						{
+							"type": "bool",
+							"name": "preferClaimedTokenOverride"
+						},
+						{
+							"type": "bool",
+							"name": "useTotalOverflowForRedemptions"
+						},
+						{
+							"type": "bool",
+							"name": "useDataSourceForPay"
+						},
+						{
+							"type": "bool",
+							"name": "useDataSourceForRedeem"
+						},
+						{
+							"type": "address",
+							"name": "dataSource"
+						},
+						{
+							"type": "uint256",
+							"name": "metadata"
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "latestConfiguredFundingCycleOf",
+			"constant": true,
+			"stateMutability": "view",
+			"payable": false,
+			"inputs": [
+				{
+					"type": "uint256",
+					"name": "_projectId"
+				}
+			],
+			"outputs": [
+				{
+					"type": "tuple",
+					"name": "fundingCycle",
+					"components": [
+						{
+							"type": "uint256",
+							"name": "number"
+						},
+						{
+							"type": "uint256",
+							"name": "configuration"
+						},
+						{
+							"type": "uint256",
+							"name": "basedOn"
+						},
+						{
+							"type": "uint256",
+							"name": "start"
+						},
+						{
+							"type": "uint256",
+							"name": "duration"
+						},
+						{
+							"type": "uint256",
+							"name": "weight"
+						},
+						{
+							"type": "uint256",
+							"name": "discountRate"
+						},
+						{
+							"type": "address",
+							"name": "ballot"
+						},
+						{
+							"type": "uint256",
+							"name": "metadata"
+						}
+					]
+				},
+				{
+					"type": "tuple",
+					"name": "metadata",
+					"components": [
+						{
+							"type": "tuple",
+							"name": "global",
+							"components": [
+								{
+									"type": "bool",
+									"name": "allowSetTerminals"
+								},
+								{
+									"type": "bool",
+									"name": "allowSetController"
+								},
+								{
+									"type": "bool",
+									"name": "pauseTransfers"
+								}
+							]
+						},
+						{
+							"type": "uint256",
+							"name": "reservedRate"
+						},
+						{
+							"type": "uint256",
+							"name": "redemptionRate"
+						},
+						{
+							"type": "uint256",
+							"name": "ballotRedemptionRate"
+						},
+						{
+							"type": "bool",
+							"name": "pausePay"
+						},
+						{
+							"type": "bool",
+							"name": "pauseDistributions"
+						},
+						{
+							"type": "bool",
+							"name": "pauseRedeem"
+						},
+						{
+							"type": "bool",
+							"name": "pauseBurn"
+						},
+						{
+							"type": "bool",
+							"name": "allowMinting"
+						},
+						{
+							"type": "bool",
+							"name": "allowTerminalMigration"
+						},
+						{
+							"type": "bool",
+							"name": "allowControllerMigration"
+						},
+						{
+							"type": "bool",
+							"name": "holdFees"
+						},
+						{
+							"type": "bool",
+							"name": "preferClaimedTokenOverride"
+						},
+						{
+							"type": "bool",
+							"name": "useTotalOverflowForRedemptions"
+						},
+						{
+							"type": "bool",
+							"name": "useDataSourceForPay"
+						},
+						{
+							"type": "bool",
+							"name": "useDataSourceForRedeem"
+						},
+						{
+							"type": "address",
+							"name": "dataSource"
+						},
+						{
+							"type": "uint256",
+							"name": "metadata"
+						}
+					]
+				},
+				{
+					"type": "uint8",
+					"name": "ballotState"
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "launchFundingCyclesFor",
+			"constant": false,
+			"payable": false,
+			"inputs": [
+				{
+					"type": "uint256",
+					"name": "_projectId"
+				},
+				{
+					"type": "tuple",
+					"name": "_data",
+					"components": [
+						{
+							"type": "uint256",
+							"name": "duration"
+						},
+						{
+							"type": "uint256",
+							"name": "weight"
+						},
+						{
+							"type": "uint256",
+							"name": "discountRate"
+						},
+						{
+							"type": "address",
+							"name": "ballot"
+						}
+					]
+				},
+				{
+					"type": "tuple",
+					"name": "_metadata",
+					"components": [
+						{
+							"type": "tuple",
+							"name": "global",
+							"components": [
+								{
+									"type": "bool",
+									"name": "allowSetTerminals"
+								},
+								{
+									"type": "bool",
+									"name": "allowSetController"
+								},
+								{
+									"type": "bool",
+									"name": "pauseTransfers"
+								}
+							]
+						},
+						{
+							"type": "uint256",
+							"name": "reservedRate"
+						},
+						{
+							"type": "uint256",
+							"name": "redemptionRate"
+						},
+						{
+							"type": "uint256",
+							"name": "ballotRedemptionRate"
+						},
+						{
+							"type": "bool",
+							"name": "pausePay"
+						},
+						{
+							"type": "bool",
+							"name": "pauseDistributions"
+						},
+						{
+							"type": "bool",
+							"name": "pauseRedeem"
+						},
+						{
+							"type": "bool",
+							"name": "pauseBurn"
+						},
+						{
+							"type": "bool",
+							"name": "allowMinting"
+						},
+						{
+							"type": "bool",
+							"name": "allowTerminalMigration"
+						},
+						{
+							"type": "bool",
+							"name": "allowControllerMigration"
+						},
+						{
+							"type": "bool",
+							"name": "holdFees"
+						},
+						{
+							"type": "bool",
+							"name": "preferClaimedTokenOverride"
+						},
+						{
+							"type": "bool",
+							"name": "useTotalOverflowForRedemptions"
+						},
+						{
+							"type": "bool",
+							"name": "useDataSourceForPay"
+						},
+						{
+							"type": "bool",
+							"name": "useDataSourceForRedeem"
+						},
+						{
+							"type": "address",
+							"name": "dataSource"
+						},
+						{
+							"type": "uint256",
+							"name": "metadata"
+						}
+					]
+				},
+				{
+					"type": "uint256",
+					"name": "_mustStartAtOrAfter"
+				},
+				{
+					"type": "tuple[]",
+					"name": "_groupedSplits",
+					"components": [
+						{
+							"type": "uint256",
+							"name": "group"
+						},
+						{
+							"type": "tuple[]",
+							"name": "splits",
+							"components": [
+								{
+									"type": "bool",
+									"name": "preferClaimed"
+								},
+								{
+									"type": "bool",
+									"name": "preferAddToBalance"
+								},
+								{
+									"type": "uint256",
+									"name": "percent"
+								},
+								{
+									"type": "uint256",
+									"name": "projectId"
+								},
+								{
+									"type": "address",
+									"name": "beneficiary"
+								},
+								{
+									"type": "uint256",
+									"name": "lockedUntil"
+								},
+								{
+									"type": "address",
+									"name": "allocator"
+								}
+							]
+						}
+					]
+				},
+				{
+					"type": "tuple[]",
+					"name": "_fundAccessConstraints",
+					"components": [
+						{
+							"type": "address",
+							"name": "terminal"
+						},
+						{
+							"type": "address",
+							"name": "token"
+						},
+						{
+							"type": "uint256",
+							"name": "distributionLimit"
+						},
+						{
+							"type": "uint256",
+							"name": "distributionLimitCurrency"
+						},
+						{
+							"type": "uint256",
+							"name": "overflowAllowance"
+						},
+						{
+							"type": "uint256",
+							"name": "overflowAllowanceCurrency"
+						}
+					]
+				},
+				{
+					"type": "address[]",
+					"name": "_terminals"
+				},
+				{
+					"type": "string",
+					"name": "_memo"
+				}
+			],
+			"outputs": [
+				{
+					"type": "uint256",
+					"name": "configuration"
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "launchProjectFor",
+			"constant": false,
+			"payable": false,
+			"inputs": [
+				{
+					"type": "address",
+					"name": "_owner"
+				},
+				{
+					"type": "tuple",
+					"name": "_projectMetadata",
+					"components": [
+						{
+							"type": "string",
+							"name": "content"
+						},
+						{
+							"type": "uint256",
+							"name": "domain"
+						}
+					]
+				},
+				{
+					"type": "tuple",
+					"name": "_data",
+					"components": [
+						{
+							"type": "uint256",
+							"name": "duration"
+						},
+						{
+							"type": "uint256",
+							"name": "weight"
+						},
+						{
+							"type": "uint256",
+							"name": "discountRate"
+						},
+						{
+							"type": "address",
+							"name": "ballot"
+						}
+					]
+				},
+				{
+					"type": "tuple",
+					"name": "_metadata",
+					"components": [
+						{
+							"type": "tuple",
+							"name": "global",
+							"components": [
+								{
+									"type": "bool",
+									"name": "allowSetTerminals"
+								},
+								{
+									"type": "bool",
+									"name": "allowSetController"
+								},
+								{
+									"type": "bool",
+									"name": "pauseTransfers"
+								}
+							]
+						},
+						{
+							"type": "uint256",
+							"name": "reservedRate"
+						},
+						{
+							"type": "uint256",
+							"name": "redemptionRate"
+						},
+						{
+							"type": "uint256",
+							"name": "ballotRedemptionRate"
+						},
+						{
+							"type": "bool",
+							"name": "pausePay"
+						},
+						{
+							"type": "bool",
+							"name": "pauseDistributions"
+						},
+						{
+							"type": "bool",
+							"name": "pauseRedeem"
+						},
+						{
+							"type": "bool",
+							"name": "pauseBurn"
+						},
+						{
+							"type": "bool",
+							"name": "allowMinting"
+						},
+						{
+							"type": "bool",
+							"name": "allowTerminalMigration"
+						},
+						{
+							"type": "bool",
+							"name": "allowControllerMigration"
+						},
+						{
+							"type": "bool",
+							"name": "holdFees"
+						},
+						{
+							"type": "bool",
+							"name": "preferClaimedTokenOverride"
+						},
+						{
+							"type": "bool",
+							"name": "useTotalOverflowForRedemptions"
+						},
+						{
+							"type": "bool",
+							"name": "useDataSourceForPay"
+						},
+						{
+							"type": "bool",
+							"name": "useDataSourceForRedeem"
+						},
+						{
+							"type": "address",
+							"name": "dataSource"
+						},
+						{
+							"type": "uint256",
+							"name": "metadata"
+						}
+					]
+				},
+				{
+					"type": "uint256",
+					"name": "_mustStartAtOrAfter"
+				},
+				{
+					"type": "tuple[]",
+					"name": "_groupedSplits",
+					"components": [
+						{
+							"type": "uint256",
+							"name": "group"
+						},
+						{
+							"type": "tuple[]",
+							"name": "splits",
+							"components": [
+								{
+									"type": "bool",
+									"name": "preferClaimed"
+								},
+								{
+									"type": "bool",
+									"name": "preferAddToBalance"
+								},
+								{
+									"type": "uint256",
+									"name": "percent"
+								},
+								{
+									"type": "uint256",
+									"name": "projectId"
+								},
+								{
+									"type": "address",
+									"name": "beneficiary"
+								},
+								{
+									"type": "uint256",
+									"name": "lockedUntil"
+								},
+								{
+									"type": "address",
+									"name": "allocator"
+								}
+							]
+						}
+					]
+				},
+				{
+					"type": "tuple[]",
+					"name": "_fundAccessConstraints",
+					"components": [
+						{
+							"type": "address",
+							"name": "terminal"
+						},
+						{
+							"type": "address",
+							"name": "token"
+						},
+						{
+							"type": "uint256",
+							"name": "distributionLimit"
+						},
+						{
+							"type": "uint256",
+							"name": "distributionLimitCurrency"
+						},
+						{
+							"type": "uint256",
+							"name": "overflowAllowance"
+						},
+						{
+							"type": "uint256",
+							"name": "overflowAllowanceCurrency"
+						}
+					]
+				},
+				{
+					"type": "address[]",
+					"name": "_terminals"
+				},
+				{
+					"type": "string",
+					"name": "_memo"
+				}
+			],
+			"outputs": [
+				{
+					"type": "uint256",
+					"name": "projectId"
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "migrate",
+			"constant": false,
+			"payable": false,
+			"inputs": [
+				{
+					"type": "uint256",
+					"name": "_projectId"
+				},
+				{
+					"type": "address",
+					"name": "_to"
+				}
+			],
+			"outputs": []
+		},
+		{
+			"type": "function",
+			"name": "mintTokensOf",
+			"constant": false,
+			"payable": false,
+			"inputs": [
+				{
+					"type": "uint256",
+					"name": "_projectId"
+				},
+				{
+					"type": "uint256",
+					"name": "_tokenCount"
+				},
+				{
+					"type": "address",
+					"name": "_beneficiary"
+				},
+				{
+					"type": "string",
+					"name": "_memo"
+				},
+				{
+					"type": "bool",
+					"name": "_preferClaimedTokens"
+				},
+				{
+					"type": "bool",
+					"name": "_useReservedRate"
+				}
+			],
+			"outputs": [
+				{
+					"type": "uint256",
+					"name": "beneficiaryTokenCount"
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "operatorStore",
+			"constant": true,
+			"stateMutability": "view",
+			"payable": false,
+			"inputs": [],
+			"outputs": [
+				{
+					"type": "address"
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "overflowAllowanceOf",
+			"constant": true,
+			"stateMutability": "view",
+			"payable": false,
+			"inputs": [
+				{
+					"type": "uint256",
+					"name": "_projectId"
+				},
+				{
+					"type": "uint256",
+					"name": "_configuration"
+				},
+				{
+					"type": "address",
+					"name": "_terminal"
+				},
+				{
+					"type": "address",
+					"name": "_token"
+				}
+			],
+			"outputs": [
+				{
+					"type": "uint256"
+				},
+				{
+					"type": "uint256"
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "prepForMigrationOf",
+			"constant": false,
+			"payable": false,
+			"inputs": [
+				{
+					"type": "uint256",
+					"name": "_projectId"
+				},
+				{
+					"type": "address",
+					"name": "_from"
+				}
+			],
+			"outputs": []
+		},
+		{
+			"type": "function",
+			"name": "projects",
+			"constant": true,
+			"stateMutability": "view",
+			"payable": false,
+			"inputs": [],
+			"outputs": [
+				{
+					"type": "address"
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "queuedFundingCycleOf",
+			"constant": true,
+			"stateMutability": "view",
+			"payable": false,
+			"inputs": [
+				{
+					"type": "uint256",
+					"name": "_projectId"
+				}
+			],
+			"outputs": [
+				{
+					"type": "tuple",
+					"name": "fundingCycle",
+					"components": [
+						{
+							"type": "uint256",
+							"name": "number"
+						},
+						{
+							"type": "uint256",
+							"name": "configuration"
+						},
+						{
+							"type": "uint256",
+							"name": "basedOn"
+						},
+						{
+							"type": "uint256",
+							"name": "start"
+						},
+						{
+							"type": "uint256",
+							"name": "duration"
+						},
+						{
+							"type": "uint256",
+							"name": "weight"
+						},
+						{
+							"type": "uint256",
+							"name": "discountRate"
+						},
+						{
+							"type": "address",
+							"name": "ballot"
+						},
+						{
+							"type": "uint256",
+							"name": "metadata"
+						}
+					]
+				},
+				{
+					"type": "tuple",
+					"name": "metadata",
+					"components": [
+						{
+							"type": "tuple",
+							"name": "global",
+							"components": [
+								{
+									"type": "bool",
+									"name": "allowSetTerminals"
+								},
+								{
+									"type": "bool",
+									"name": "allowSetController"
+								},
+								{
+									"type": "bool",
+									"name": "pauseTransfers"
+								}
+							]
+						},
+						{
+							"type": "uint256",
+							"name": "reservedRate"
+						},
+						{
+							"type": "uint256",
+							"name": "redemptionRate"
+						},
+						{
+							"type": "uint256",
+							"name": "ballotRedemptionRate"
+						},
+						{
+							"type": "bool",
+							"name": "pausePay"
+						},
+						{
+							"type": "bool",
+							"name": "pauseDistributions"
+						},
+						{
+							"type": "bool",
+							"name": "pauseRedeem"
+						},
+						{
+							"type": "bool",
+							"name": "pauseBurn"
+						},
+						{
+							"type": "bool",
+							"name": "allowMinting"
+						},
+						{
+							"type": "bool",
+							"name": "allowTerminalMigration"
+						},
+						{
+							"type": "bool",
+							"name": "allowControllerMigration"
+						},
+						{
+							"type": "bool",
+							"name": "holdFees"
+						},
+						{
+							"type": "bool",
+							"name": "preferClaimedTokenOverride"
+						},
+						{
+							"type": "bool",
+							"name": "useTotalOverflowForRedemptions"
+						},
+						{
+							"type": "bool",
+							"name": "useDataSourceForPay"
+						},
+						{
+							"type": "bool",
+							"name": "useDataSourceForRedeem"
+						},
+						{
+							"type": "address",
+							"name": "dataSource"
+						},
+						{
+							"type": "uint256",
+							"name": "metadata"
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "reconfigureFundingCyclesOf",
+			"constant": false,
+			"payable": false,
+			"inputs": [
+				{
+					"type": "uint256",
+					"name": "_projectId"
+				},
+				{
+					"type": "tuple",
+					"name": "_data",
+					"components": [
+						{
+							"type": "uint256",
+							"name": "duration"
+						},
+						{
+							"type": "uint256",
+							"name": "weight"
+						},
+						{
+							"type": "uint256",
+							"name": "discountRate"
+						},
+						{
+							"type": "address",
+							"name": "ballot"
+						}
+					]
+				},
+				{
+					"type": "tuple",
+					"name": "_metadata",
+					"components": [
+						{
+							"type": "tuple",
+							"name": "global",
+							"components": [
+								{
+									"type": "bool",
+									"name": "allowSetTerminals"
+								},
+								{
+									"type": "bool",
+									"name": "allowSetController"
+								},
+								{
+									"type": "bool",
+									"name": "pauseTransfers"
+								}
+							]
+						},
+						{
+							"type": "uint256",
+							"name": "reservedRate"
+						},
+						{
+							"type": "uint256",
+							"name": "redemptionRate"
+						},
+						{
+							"type": "uint256",
+							"name": "ballotRedemptionRate"
+						},
+						{
+							"type": "bool",
+							"name": "pausePay"
+						},
+						{
+							"type": "bool",
+							"name": "pauseDistributions"
+						},
+						{
+							"type": "bool",
+							"name": "pauseRedeem"
+						},
+						{
+							"type": "bool",
+							"name": "pauseBurn"
+						},
+						{
+							"type": "bool",
+							"name": "allowMinting"
+						},
+						{
+							"type": "bool",
+							"name": "allowTerminalMigration"
+						},
+						{
+							"type": "bool",
+							"name": "allowControllerMigration"
+						},
+						{
+							"type": "bool",
+							"name": "holdFees"
+						},
+						{
+							"type": "bool",
+							"name": "preferClaimedTokenOverride"
+						},
+						{
+							"type": "bool",
+							"name": "useTotalOverflowForRedemptions"
+						},
+						{
+							"type": "bool",
+							"name": "useDataSourceForPay"
+						},
+						{
+							"type": "bool",
+							"name": "useDataSourceForRedeem"
+						},
+						{
+							"type": "address",
+							"name": "dataSource"
+						},
+						{
+							"type": "uint256",
+							"name": "metadata"
+						}
+					]
+				},
+				{
+					"type": "uint256",
+					"name": "_mustStartAtOrAfter"
+				},
+				{
+					"type": "tuple[]",
+					"name": "_groupedSplits",
+					"components": [
+						{
+							"type": "uint256",
+							"name": "group"
+						},
+						{
+							"type": "tuple[]",
+							"name": "splits",
+							"components": [
+								{
+									"type": "bool",
+									"name": "preferClaimed"
+								},
+								{
+									"type": "bool",
+									"name": "preferAddToBalance"
+								},
+								{
+									"type": "uint256",
+									"name": "percent"
+								},
+								{
+									"type": "uint256",
+									"name": "projectId"
+								},
+								{
+									"type": "address",
+									"name": "beneficiary"
+								},
+								{
+									"type": "uint256",
+									"name": "lockedUntil"
+								},
+								{
+									"type": "address",
+									"name": "allocator"
+								}
+							]
+						}
+					]
+				},
+				{
+					"type": "tuple[]",
+					"name": "_fundAccessConstraints",
+					"components": [
+						{
+							"type": "address",
+							"name": "terminal"
+						},
+						{
+							"type": "address",
+							"name": "token"
+						},
+						{
+							"type": "uint256",
+							"name": "distributionLimit"
+						},
+						{
+							"type": "uint256",
+							"name": "distributionLimitCurrency"
+						},
+						{
+							"type": "uint256",
+							"name": "overflowAllowance"
+						},
+						{
+							"type": "uint256",
+							"name": "overflowAllowanceCurrency"
+						}
+					]
+				},
+				{
+					"type": "string",
+					"name": "_memo"
+				}
+			],
+			"outputs": [
+				{
+					"type": "uint256",
+					"name": "configuration"
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "reservedTokenBalanceOf",
+			"constant": true,
+			"stateMutability": "view",
+			"payable": false,
+			"inputs": [
+				{
+					"type": "uint256",
+					"name": "_projectId"
+				},
+				{
+					"type": "uint256",
+					"name": "_reservedRate"
+				}
+			],
+			"outputs": [
+				{
+					"type": "uint256"
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "splitsStore",
+			"constant": true,
+			"stateMutability": "view",
+			"payable": false,
+			"inputs": [],
+			"outputs": [
+				{
+					"type": "address"
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "supportsInterface",
+			"constant": true,
+			"stateMutability": "view",
+			"payable": false,
+			"inputs": [
+				{
+					"type": "bytes4",
+					"name": "_interfaceId"
+				}
+			],
+			"outputs": [
+				{
+					"type": "bool"
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "tokenStore",
+			"constant": true,
+			"stateMutability": "view",
+			"payable": false,
+			"inputs": [],
+			"outputs": [
+				{
+					"type": "address"
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "totalOutstandingTokensOf",
+			"constant": true,
+			"stateMutability": "view",
+			"payable": false,
+			"inputs": [
+				{
+					"type": "uint256",
+					"name": "_projectId"
+				},
+				{
+					"type": "uint256",
+					"name": "_reservedRate"
+				}
+			],
+			"outputs": [
+				{
+					"type": "uint256"
+				}
+			]
+		}
+	]
+}

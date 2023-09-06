@@ -1,0 +1,263 @@
+{
+	"goerli": "0x2BDc490Be92ca2bAaF8C70D7532cF2cD4113eF64",
+	"abi": [
+		{
+			"type": "constructor",
+			"payable": false,
+			"inputs": [
+				{
+					"type": "address",
+					"name": "_jbxDirectory"
+				},
+				{
+					"type": "address",
+					"name": "_jbxOperatorStore"
+				},
+				{
+					"type": "address",
+					"name": "_jbxProjects"
+				},
+				{
+					"type": "uint256",
+					"name": "_feeBps"
+				},
+				{
+					"type": "uint24",
+					"name": "_uniswapPoolFee"
+				}
+			]
+		},
+		{
+			"type": "error",
+			"name": "LIQUIDATION_FAILURE",
+			"inputs": [
+				{
+					"type": "uint8",
+					"name": "_errorCode"
+				}
+			]
+		},
+		{
+			"type": "error",
+			"name": "UNAUTHORIZED",
+			"inputs": []
+		},
+		{
+			"type": "event",
+			"anonymous": false,
+			"name": "AllowTokenLiquidation",
+			"inputs": [
+				{
+					"type": "address",
+					"name": "token",
+					"indexed": false
+				}
+			]
+		},
+		{
+			"type": "event",
+			"anonymous": false,
+			"name": "PreventLiquidation",
+			"inputs": [
+				{
+					"type": "address",
+					"name": "token",
+					"indexed": false
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "WETH9",
+			"constant": true,
+			"stateMutability": "view",
+			"payable": false,
+			"inputs": [],
+			"outputs": [
+				{
+					"type": "address"
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "blockToken",
+			"constant": false,
+			"payable": false,
+			"inputs": [
+				{
+					"type": "address",
+					"name": "_token"
+				}
+			],
+			"outputs": []
+		},
+		{
+			"type": "function",
+			"name": "feeBps",
+			"constant": true,
+			"stateMutability": "view",
+			"payable": false,
+			"inputs": [],
+			"outputs": [
+				{
+					"type": "uint256"
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "jbxDirectory",
+			"constant": true,
+			"stateMutability": "view",
+			"payable": false,
+			"inputs": [],
+			"outputs": [
+				{
+					"type": "address"
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "jbxProjects",
+			"constant": true,
+			"stateMutability": "view",
+			"payable": false,
+			"inputs": [],
+			"outputs": [
+				{
+					"type": "address"
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "liquidateTokens",
+			"constant": false,
+			"payable": false,
+			"inputs": [
+				{
+					"type": "address",
+					"name": "_token"
+				},
+				{
+					"type": "uint256",
+					"name": "_amount"
+				},
+				{
+					"type": "uint256",
+					"name": "_minValue"
+				},
+				{
+					"type": "uint256",
+					"name": "_jbxProjectId"
+				},
+				{
+					"type": "address",
+					"name": "_beneficiary"
+				},
+				{
+					"type": "string",
+					"name": "_memo"
+				},
+				{
+					"type": "bytes",
+					"name": "_metadata"
+				}
+			],
+			"outputs": [
+				{
+					"type": "uint256",
+					"name": "remainingAmount"
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "operatorStore",
+			"constant": true,
+			"stateMutability": "view",
+			"payable": false,
+			"inputs": [],
+			"outputs": [
+				{
+					"type": "address"
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "setProtocolFee",
+			"constant": false,
+			"payable": false,
+			"inputs": [
+				{
+					"type": "uint256",
+					"name": "_feeBps"
+				}
+			],
+			"outputs": []
+		},
+		{
+			"type": "function",
+			"name": "setUniswapPoolFee",
+			"constant": false,
+			"payable": false,
+			"inputs": [
+				{
+					"type": "uint24",
+					"name": "_uniswapPoolFee"
+				}
+			],
+			"outputs": []
+		},
+		{
+			"type": "function",
+			"name": "unblockToken",
+			"constant": false,
+			"payable": false,
+			"inputs": [
+				{
+					"type": "address",
+					"name": "_token"
+				}
+			],
+			"outputs": []
+		},
+		{
+			"type": "function",
+			"name": "uniswapPoolFee",
+			"constant": true,
+			"stateMutability": "view",
+			"payable": false,
+			"inputs": [],
+			"outputs": [
+				{
+					"type": "uint24"
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "uniswapRouter",
+			"constant": true,
+			"stateMutability": "view",
+			"payable": false,
+			"inputs": [],
+			"outputs": [
+				{
+					"type": "address"
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "withdrawFees",
+			"constant": false,
+			"payable": false,
+			"inputs": [],
+			"outputs": []
+		}
+	]
+}

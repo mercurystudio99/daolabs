@@ -1,0 +1,28 @@
+{
+	"compilerOptions": {
+		"target": "ESNext",
+		"module": "commonjs",
+		"moduleResolution": "Node",
+		"sourceMap": true,
+		"outDir": "./out",
+		"esModuleInterop": true,
+		"paths": {
+			"$env": ["../src/env"],
+			"$env/*": ["../src/env/*"],
+			"$lib": ["../src/lib"],
+			"$lib/*": ["../src/lib/*"],
+			"$stores": ["../src/stores"],
+			"$stores/*": ["../src/stores/*"],
+			"$utils": ["../src/utils"],
+			"$utils/*": ["../src/utils/*"],
+			"$assets": ["../src/assets"],
+			"$assets/*": ["../src/assets/*"],
+			"$constants": ["../src/constants"],
+			"$constants/*": ["../src/constants/*"],
+			"$models": ["../src/models"],
+			"$models/*": ["../src/models/*"],
+			"$data": ["../src/data"],
+			"$data/*": ["../src/data/*"]
+		}
+	}
+}

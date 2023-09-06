@@ -1,0 +1,114 @@
+{
+	"goerli": "0x48871599d3d8D294C8439aa9a03DFab370A1A7F2",
+	"abi": [
+		{
+			"type": "constructor",
+			"payable": false,
+			"inputs": [
+				{
+					"type": "address",
+					"name": "_directory"
+				}
+			]
+		},
+		{
+			"type": "event",
+			"anonymous": false,
+			"name": "DeployProjectPayer",
+			"inputs": [
+				{
+					"type": "address",
+					"name": "projectPayer",
+					"indexed": true
+				},
+				{
+					"type": "uint256",
+					"name": "defaultProjectId",
+					"indexed": false
+				},
+				{
+					"type": "address",
+					"name": "defaultBeneficiary",
+					"indexed": false
+				},
+				{
+					"type": "bool",
+					"name": "defaultPreferClaimedTokens",
+					"indexed": false
+				},
+				{
+					"type": "string",
+					"name": "defaultMemo",
+					"indexed": false
+				},
+				{
+					"type": "bytes",
+					"name": "defaultMetadata",
+					"indexed": false
+				},
+				{
+					"type": "bool",
+					"name": "preferAddToBalance",
+					"indexed": false
+				},
+				{
+					"type": "address",
+					"name": "directory",
+					"indexed": false
+				},
+				{
+					"type": "address",
+					"name": "owner",
+					"indexed": false
+				},
+				{
+					"type": "address",
+					"name": "caller",
+					"indexed": false
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "deployProjectPayer",
+			"constant": false,
+			"payable": false,
+			"inputs": [
+				{
+					"type": "uint256",
+					"name": "_defaultProjectId"
+				},
+				{
+					"type": "address",
+					"name": "_defaultBeneficiary"
+				},
+				{
+					"type": "bool",
+					"name": "_defaultPreferClaimedTokens"
+				},
+				{
+					"type": "string",
+					"name": "_defaultMemo"
+				},
+				{
+					"type": "bytes",
+					"name": "_defaultMetadata"
+				},
+				{
+					"type": "bool",
+					"name": "_defaultPreferAddToBalance"
+				},
+				{
+					"type": "address",
+					"name": "_owner"
+				}
+			],
+			"outputs": [
+				{
+					"type": "address",
+					"name": "projectPayer"
+				}
+			]
+		}
+	]
+}

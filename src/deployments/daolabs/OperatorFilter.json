@@ -1,0 +1,142 @@
+{
+    "goerli": "",
+    "abi": [
+        {
+            "type": "event",
+            "anonymous": false,
+            "name": "OwnershipTransferred",
+            "inputs": [
+                {
+                    "type": "address",
+                    "name": "previousOwner",
+                    "indexed": true
+                },
+                {
+                    "type": "address",
+                    "name": "newOwner",
+                    "indexed": true
+                }
+            ]
+        },
+        {
+            "type": "function",
+            "name": "blockedAddresses",
+            "constant": true,
+            "stateMutability": "view",
+            "payable": false,
+            "inputs": [
+                {
+                    "type": "address"
+                }
+            ],
+            "outputs": [
+                {
+                    "type": "bool"
+                }
+            ]
+        },
+        {
+            "type": "function",
+            "name": "blockedCodeHashes",
+            "constant": true,
+            "stateMutability": "view",
+            "payable": false,
+            "inputs": [
+                {
+                    "type": "bytes32"
+                }
+            ],
+            "outputs": [
+                {
+                    "type": "bool"
+                }
+            ]
+        },
+        {
+            "type": "function",
+            "name": "mayTransfer",
+            "constant": true,
+            "stateMutability": "view",
+            "payable": false,
+            "inputs": [
+                {
+                    "type": "address",
+                    "name": "_operator"
+                }
+            ],
+            "outputs": [
+                {
+                    "type": "bool"
+                }
+            ]
+        },
+        {
+            "type": "function",
+            "name": "owner",
+            "constant": true,
+            "stateMutability": "view",
+            "payable": false,
+            "inputs": [],
+            "outputs": [
+                {
+                    "type": "address"
+                }
+            ]
+        },
+        {
+            "type": "function",
+            "name": "registerAddress",
+            "constant": false,
+            "payable": false,
+            "inputs": [
+                {
+                    "type": "address",
+                    "name": "_account"
+                },
+                {
+                    "type": "bool",
+                    "name": "_blocked"
+                }
+            ],
+            "outputs": []
+        },
+        {
+            "type": "function",
+            "name": "registerCodeHash",
+            "constant": false,
+            "payable": false,
+            "inputs": [
+                {
+                    "type": "bytes32",
+                    "name": "_codeHash"
+                },
+                {
+                    "type": "bool",
+                    "name": "_blocked"
+                }
+            ],
+            "outputs": []
+        },
+        {
+            "type": "function",
+            "name": "renounceOwnership",
+            "constant": false,
+            "payable": false,
+            "inputs": [],
+            "outputs": []
+        },
+        {
+            "type": "function",
+            "name": "transferOwnership",
+            "constant": false,
+            "payable": false,
+            "inputs": [
+                {
+                    "type": "address",
+                    "name": "newOwner"
+                }
+            ],
+            "outputs": []
+        }
+    ]
+}

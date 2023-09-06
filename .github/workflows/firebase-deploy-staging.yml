@@ -1,0 +1,31 @@
+name: Update (Staging)
+on:
+  push:
+    branches: deploy/staging
+
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    env:
+      #
+      VITE_FIREBASE_FUNCTIONS_URL: ${{ secrets.VITE_FIREBASE_FUNCTIONS_URL }}
+      VITE_PINATA_GATEWAY_HOSTNAME: ${{ secrets.VITE_PINATA_GATEWAY_HOSTNAME }}
+      VITE_API_KEY: ${{ secrets.VITE_API_KEY }}
+      VITE_SUBGRAPH_API_KEY: ${{ secrets.VITE_SUBGRAPH_API_KEY }}
+      #
+      VITE_FIREBASE_API_KEY: ${{ secrets.VITE_FIREBASE_API_KEY }}
+      VITE_FIREBASE_AUTH_DOMAIN: ${{ secrets.VITE_FIREBASE_AUTH_DOMAIN }}
+      VITE_FIREBASE_PROJECT_ID: ${{ secrets.VITE_FIREBASE_PROJECT_ID }}
+      VITE_FIREBASE_STORAGE_BUCKET: ${{ secrets.VITE_FIREBASE_STORAGE_BUCKET }}
+      VITE_FIREBASE_APP_ID: ${{ secrets.VITE_FIREBASE_APP_ID }}
+      VITE_FIREBASE_MESSAGING_SENDER_ID: ${{ secrets.VITE_FIREBASE_MESSAGING_SENDER_ID }}
+      VITE_FIREBASE_MEASURMENT_ID: ${{ secrets.VITE_FIREBASE_MEASURMENT_ID }}
+      VITE_FIREBASE_DATABASE_URL: ${{ secrets.VITE_FIREBASE_DATABASE_URL }}
+      #
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+      - run: yarn install
+      - run: NODE_OPTIONS=--max_old_space_size=8192 npx firebase-tools deploy --only hosting:staging --project juicebox-svelte --token ${{ secrets.FIREBASE_TOKEN }}

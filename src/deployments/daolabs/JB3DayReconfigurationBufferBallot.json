@@ -1,0 +1,72 @@
+{
+	"goerli": "0xA0939DE2b5fD91d41e1Dd9eE0aCE7CCBe12Bc2a8",
+	"abi": [
+		{
+			"type": "constructor",
+			"payable": false,
+			"inputs": [
+				{
+					"type": "uint256",
+					"name": "_duration"
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "duration",
+			"constant": true,
+			"stateMutability": "view",
+			"payable": false,
+			"inputs": [],
+			"outputs": [
+				{
+					"type": "uint256"
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "stateOf",
+			"constant": true,
+			"stateMutability": "view",
+			"payable": false,
+			"inputs": [
+				{
+					"type": "uint256",
+					"name": "_projectId"
+				},
+				{
+					"type": "uint256",
+					"name": "_configured"
+				},
+				{
+					"type": "uint256",
+					"name": "_start"
+				}
+			],
+			"outputs": [
+				{
+					"type": "uint8"
+				}
+			]
+		},
+		{
+			"type": "function",
+			"name": "supportsInterface",
+			"constant": true,
+			"stateMutability": "view",
+			"payable": false,
+			"inputs": [
+				{
+					"type": "bytes4",
+					"name": "_interfaceId"
+				}
+			],
+			"outputs": [
+				{
+					"type": "bool"
+				}
+			]
+		}
+	]
+}

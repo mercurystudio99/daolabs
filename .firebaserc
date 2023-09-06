@@ -1,0 +1,18 @@
+{
+	"projects": {
+		"default": "juicebox-svelte"
+	},
+	"targets": {
+		"juicebox-svelte": {
+			"hosting": {
+				"default": [
+					"juicebox-svelte"
+				],
+				"bleeding-edge": [
+					"bleeding-edge-dev"
+				]
+			}
+		}
+	},
+	"etags": {}
+}
